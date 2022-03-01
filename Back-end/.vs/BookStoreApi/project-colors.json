@@ -5,7 +5,12 @@
       "ProjectGuid": "12afdb4a-e1d5-416e-b52b-ea3e7960ca31",
       "DisplayName": "BookStoreApi",
       "ColorIndex": 0
+    },
+    "8926a0d5-c889-47c0-9fb0-34e512f9eaef": {
+      "ProjectGuid": "8926a0d5-c889-47c0-9fb0-34e512f9eaef",
+      "DisplayName": "BookStoreApi.Test",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

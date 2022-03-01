@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj": {}
+    "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj": {}
   },
   "projects": {
-    "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj": {
+    "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
+        "projectUniqueName": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
         "projectName": "BookStoreApi",
-        "projectPath": "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
+        "projectPath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\obj\\",
+        "outputPath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

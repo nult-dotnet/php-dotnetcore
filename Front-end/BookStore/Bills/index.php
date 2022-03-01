@@ -25,11 +25,11 @@
                             Danh mục quản lý hóa đơn
                         </div>
                         <div class="item_navbar">
-                            <a href="">Trang chủ</a> / <a href="/../BookStore/Bills/">Quản lý hóa đơn</a>
+                            <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Bills/">Quản lý hóa đơn</a>
                         </div>
                     </div>
                     <div class="insert_data text-right">
-                        <a href="/../BookStore/Bills/create.php" class="btn btn-primary">Thêm mới</a>
+                        <a href="/../../php-dotnetcore/Front-end/BookStore/Bills/create.php" class="btn btn-primary">Thêm mới</a>
                     </div>
                     <div class="item-list_data">
                         <?php 
@@ -56,7 +56,7 @@
                                         <td><?=date("H:i:s d-m-Y",strtotime($value["timeCreate"]))?></td>
                                         <td class="text-center"><b><?=$value["currency"]?></b></td>
                                         <td class="text-right">
-                                            <a href="/../BookStore/Bills/detail.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                                            <a href="/../../php-dotnetcore/Front-end/BookStore/Bills/detail.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach?>

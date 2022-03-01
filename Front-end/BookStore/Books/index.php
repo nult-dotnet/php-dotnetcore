@@ -25,11 +25,11 @@
                             Danh mục quản lý sách
                         </div>
                         <div class="item_navbar">
-                            <a href="">Trang chủ</a> / <a href="/../BookStore/Books/">Quản lý sách</a>
+                            <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Books/">Quản lý sách</a>
                         </div>
                     </div>
                     <div class="insert_data text-right">
-                        <a href="/../BookStore/Books/create.php" class="btn btn-primary">Thêm mới</a>
+                        <a href="/../../php-dotnetcore/Front-end/BookStore/Books/create.php" class="btn btn-primary">Thêm mới</a>
                     </div>
                     <div class="item-list_data">
                         <?php 
@@ -58,7 +58,7 @@
                                         <td class="text-center quantity"><b class="text-danger"><?=$value["quantity"] - $value["sold"]?></b> <i data-id="<?=$value["id"]?>" class="text-danger edit_quantity fas fa-pen-square"></i></td>
                                         <td class="text-center"><?=$value["sold"]?></td>
                                         <td class="text-right" style="display: flex;column-gap: 5px;justify-content:flex-end">
-                                            <a href="/../BookStore/Books/edit.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a href="/../../php-dotnetcore/Front-end/BookStore/Books/edit.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
                                             <form action="delete.php" method="POST">
                                                 <input type="hidden" name="Id" id="id" readonly value="<?=$value['id']?>"/>
                                                 <button class="btn btn-danger btn-sm" type="submit" name="Delete"><i class="fas fa-trash-alt"></i></button>

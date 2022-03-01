@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gSEBADy21Qh/LnNO+H1dUCqEpYDNFZXkuLskmVUD9/of4PpcGj1NSzBJY0sZ8UpIjgYhpTDkZLBop8y8PTU4oQ==",
+  "dgSpecHash": "9/BafdHp1TzJeQHBJuAlBaTvOLEJHCggefcHK4/aXxxiZaIyMmZ8FHYjAiG9T0qb83tKWomNr6H9pgAsfzpGFQ==",
   "success": true,
-  "projectFilePath": "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
+  "projectFilePath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

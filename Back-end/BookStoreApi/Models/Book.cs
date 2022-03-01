@@ -34,7 +34,6 @@ namespace BookStoreApi.Models
     }
     public class BookDTO
     {
-        public string ID { get; set; }
         private int quantity;
         [Required]
         public string Name { get; set; }

@@ -25,11 +25,11 @@
                             Danh mục quản lý nhân viên
                         </div>
                         <div class="item_navbar">
-                            <a href="">Trang chủ</a> / <a href="/../BookStore/Staffs/">Quản lý nhân viên</a>
+                            <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Staffs/">Quản lý nhân viên</a>
                         </div>
                     </div>
                     <div class="insert_data text-right">
-                        <a href="/../BookStore/Staffs/create.php" class="btn btn-primary">Thêm mới</a>
+                        <a href="/../../php-dotnetcore/Front-end/BookStore/Staffs/create.php" class="btn btn-primary">Thêm mới</a>
                     </div>
                     <div class="item-list_data">
                         <?php 
@@ -58,7 +58,7 @@
                                             <?=$role = !empty($value["role"]["name"]) ? $value["role"]["name"] : "";?>
                                         </td>
                                         <td class="text-right" style="display: flex;column-gap: 5px;justify-content:flex-end">
-                                            <a href="/../BookStore/Staffs/edit.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a href="/../../php-dotnetcore/Front-end/BookStore/Staffs/edit.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
                                             <form action="delete.php" method="POST">
                                                 <input type="hidden" name="Id" id="id" readonly value="<?=$value['id']?>"/>
                                                 <button class="btn btn-danger btn-sm" type="submit" name="Delete"><i class="fas fa-trash-alt"></i></button>

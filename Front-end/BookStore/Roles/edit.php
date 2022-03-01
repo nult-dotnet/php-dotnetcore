@@ -33,7 +33,7 @@
                                 Cập nhật chức vụ nhân viên
                             </div>
                             <div class="item_navbar">
-                                <a href="">Trang chủ</a> / <a href="/../BookStore/Roles/">Chức vụ nhân viên</a> / <span>Cập nhật</span>
+                                <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Roles/">Chức vụ nhân viên</a> / <span>Cập nhật</span>
                             </div>
                         </div>
                         <div class="item-list_data">

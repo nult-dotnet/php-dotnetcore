@@ -33,7 +33,7 @@
                                 Cập nhật sản phẩm
                             </div>
                             <div class="item_navbar">
-                                <a href="">Trang chủ</a> / <a href="/../BookStore/Books/">Quản lý sách</a> / <span>Cập nhật</span>
+                                <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Books/">Quản lý sách</a> / <span>Cập nhật</span>
                             </div>
                         </div>
                         <div class="item-list_data">

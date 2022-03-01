@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BookStoreApi"
   ],
-  "SelectedNode": "\\BookStoreApi.sln",
+  "SelectedNode": "\\BookStoreApi\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

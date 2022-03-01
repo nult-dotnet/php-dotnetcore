@@ -27,3 +27,6 @@
 [2022-03-01 15:02:01.997 +07:00  INF]  PUT - Run api: https://localhost:44313/api/category/62170dd90f2e073e43fb78e3
 [2022-03-01 15:02:01.997 +07:00  INF]  PUT - Input:{"Name":"Truyện tranh"}
 [2022-03-01 15:02:02.000 +07:00  WRN]  ERROR - Category is exist
+[2022-03-01 15:38:21.187 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-01 15:38:22.505 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-01 15:38:32.315 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category

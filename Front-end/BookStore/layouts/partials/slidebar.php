@@ -19,26 +19,26 @@
                 <div id="menu"> 
                     <ul>
                         <li class="slidebar_menu--item">
-                            <a href="/../BookStore/Books/">
+                            <a href="/../../php-dotnetcore/Front-end/BookStore/Books/">
                                 <i class="nav-icon fas fa-th"></i><span class="link">Quản lý sách</span>
                             </a>
                         </li>
                         <li class="slidebar_menu--item">
-                            <a href="/../BookStore/Category/">
+                            <a href="/../../php-dotnetcore/Front-end/BookStore/Category/">
                                 <i class="nav-icon fas fa-th"></i><span class="link">Phân loại sách</span>
                             </a>
                         </li>
                         <li class="slidebar_menu--item">
-                            <a href="/../BookStore/Bills/">
+                            <a href="/../../php-dotnetcore/Front-end/BookStore/Bills/">
                                 <i class="nav-icon fas fa-th"></i><span class="link">Quản lý hóa đơn</span>
                             </a>
                         </li>
                         <li class="slidebar_menu--item">
-                            <a href="/../BookStore/Staffs/">
+                            <a href="/../../php-dotnetcore/Front-end/BookStore/Staffs/">
                                 <i class="nav-icon fas fa-th"></i><span class="link">Quản lý nhân viên</span>
                             </a>  
                         </li><li class="slidebar_menu--item">
-                            <a href="/../BookStore/Roles/">
+                            <a href="/../../php-dotnetcore/Front-end/BookStore/Roles/">
                                 <i class="nav-icon fas fa-th"></i><span class="link">Vai trò nhân viên</span>
                             </a>  
                         </li>
