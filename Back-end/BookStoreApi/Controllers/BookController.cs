@@ -96,8 +96,6 @@ namespace BookStoreApi.Controllers
             await this._bookService.UpdateAsync(book.ID, book);
             return CreatedAtAction(nameof(GetItemBook), new { id = book.ID}, book);
         }
-        
-        //Test API post and put
         [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> DeleteItemBook(string id)
         {

@@ -29,10 +29,14 @@
                             </div>
                         </div>
                         <div class="item-list_data">
-                            <form action="add.php" method="POST">
+                            <form action="add.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="name"><b>Tên sách</b></label>
                                     <input type="text" name="name"  id="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="file"><b>Hình ảnh</b></label>
+                                    <input type="file" name="file" id="file" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="price"><b>Giá bán niêm yết</b></label>
