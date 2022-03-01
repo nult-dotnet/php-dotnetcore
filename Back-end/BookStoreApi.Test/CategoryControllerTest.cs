@@ -19,9 +19,10 @@ namespace BookStoreApi.Test
         private readonly Mock<IMapper> _mockMapper = new Mock<IMapper>();
         private readonly Mock<BooksService> _mockBookService = new Mock<BooksService>();
         private readonly Mock<ILogger<CategoryController>> _mockLogger = new Mock<ILogger<CategoryController>>();
+        private readonly Mock<LogsService> _mockLogSevice = new Mock<LogsService>();
         public CategoryControllerTest()
         {
-            _testController = new CategoryController(_mockCategoryService.Object, _mockBookService.Object, _mockMapper.Object, _mockLogger.Object);
+            _testController = new CategoryController(_mockCategoryService.Object, _mockBookService.Object, _mockMapper.Object, _mockLogger.Object,_mockLogSevice.Object);
         }
         //Get
         [Fact]

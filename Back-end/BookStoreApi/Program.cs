@@ -1,14 +1,28 @@
 using BookStoreApi.Services;
 using BookStoreApi.Settings;
-using Microsoft.Net.Http.Headers;
+using Microsoft.AspNetCore.HttpLogging;
 using Serilog;
-using System.Reflection;
+using Serilog.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpLogging(logging =>
+{
+    logging.LoggingFields = HttpLoggingFields.All;
+    logging.RequestHeaders.Add("sec-ch-ua");
+    logging.ResponseHeaders.Add("MyResponseHeader");
+    logging.MediaTypeOptions.AddText("application/javascript");
+    logging.RequestBodyLogLimit = 4096;
+    logging.ResponseBodyLogLimit = 4096;
+
+});
 // Add services to the container.
 //log file
 var logger = new LoggerConfiguration()
   .ReadFrom.Configuration(builder.Configuration)
+  .Filter.ByExcluding(Matching.FromSource("Microsoft"))
+  .Filter.ByExcluding(Matching.FromSource("System"))
+  .Enrich.FromLogContext()
   .CreateLogger();
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
@@ -20,6 +34,7 @@ builder.Services.AddSingleton<UsersService>();
 builder.Services.AddSingleton<RolesService>();
 builder.Services.AddSingleton<CategoryService>();
 builder.Services.AddSingleton<BillsService>();
+builder.Services.AddSingleton<LogsService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -30,16 +45,6 @@ builder.Services.AddResponseCaching();
 builder.Services.AddControllers().AddNewtonsoftJson();
 //Config AutoMapper 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: "MyPolicy",
-                builder =>
-                {
-                    builder.WithOrigins("https://localhost:44313/")
-                            .WithMethods("PUT","DELETE", "GET","POST");
-                });
-});
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -57,5 +62,5 @@ app.UseResponseCaching();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.UseHttpLogging();
 app.Run();

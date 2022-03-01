@@ -1,0 +1,29 @@
+[2022-03-01 14:47:52.506 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-01 14:50:45.202 +07:00  INF]  GET (ItemById) - Run api: https://localhost:44313/api/category/621dbdea703e932c42f173b8
+[2022-03-01 14:50:45.341 +07:00  WRN]  ERROR - Category not found
+[2022-03-01 14:50:45.445 +07:00  INF]  GET (ItemById) - Output: null
+[2022-03-01 14:52:04.172 +07:00  INF]  GET (ItemById) - Run api: https://localhost:44313/api/category/62170c560f2e073e43fb78de
+[2022-03-01 14:52:04.230 +07:00  INF]  GET (ItemById) - Output: {"Id":"62170c560f2e073e43fb78de","Name":"Truyện tranh","Quantity":0,"TimeCreate":"2022-02-24T04:40:54.201Z","Book":null}
+[2022-03-01 15:00:46.261 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-01 15:00:56.271 +07:00  INF]  GET (ItemById) - Run api: https://localhost:44313/api/category/62170c560f2e073e43fb78de
+[2022-03-01 15:00:56.306 +07:00  INF]  GET (ItemById) - Output: {"Id":"62170c560f2e073e43fb78de","Name":"Truyện tranh","Quantity":0,"TimeCreate":"2022-02-24T04:40:54.201Z","Book":null}
+[2022-03-01 15:00:59.926 +07:00  INF]  GET (ItemById) - Run api: https://localhost:44313/api/category/62170c560f2e073e43fb78d4
+[2022-03-01 15:00:59.927 +07:00  WRN]  ERROR - Category not found
+[2022-03-01 15:01:04.909 +07:00  INF]  POST - Run api: https://localhost:44313/api/category
+[2022-03-01 15:01:04.910 +07:00  INF]  POST - Input: {"Name":"Truyện tranh"}
+[2022-03-01 15:01:04.946 +07:00  WRN]  ERROR - Category is exist
+[2022-03-01 15:01:10.435 +07:00  INF]  POST - Run api: https://localhost:44313/api/category
+[2022-03-01 15:01:10.435 +07:00  INF]  POST - Input: {"Name":"aaaaaaa"}
+[2022-03-01 15:01:10.442 +07:00  INF]  POST - Output: {"Id":"621dd2c6b151e45435df3e21","Name":"aaaaaaa","Quantity":0,"TimeCreate":"2022-03-01T08:01:10.4358711Z","Book":null}
+[2022-03-01 15:01:24.078 +07:00  INF]  DELETE - Run api: https://localhost:44313/api/category/620f8dc54f2419923196ae8b
+[2022-03-01 15:01:24.079 +07:00  WRN]  ERROR - Category not found
+[2022-03-01 15:01:34.743 +07:00  INF]  DELETE - Run api: https://localhost:44313/api/category/621dd2c6b151e45435df3e21
+[2022-03-01 15:01:37.737 +07:00  INF]  PUT - Run api: https://localhost:44313/api/category/62170dd90f2e073e43fb78e3
+[2022-03-01 15:01:37.737 +07:00  INF]  PUT - Input:{"Name":"Sách Giáo khoa"}
+[2022-03-01 15:01:37.755 +07:00  INF]  PUT - Output: {"Id":"62170dd90f2e073e43fb78e3","Name":"Sách Giáo khoa","Quantity":0,"TimeCreate":"2022-02-24T04:47:21.577Z","Book":null}
+[2022-03-01 15:01:42.291 +07:00  INF]  PUT - Run api: https://localhost:44313/api/category/62170dd90f2e073e43fb78e4
+[2022-03-01 15:01:42.291 +07:00  INF]  PUT - Input:{"Name":"Sách Giáo khoa"}
+[2022-03-01 15:01:42.293 +07:00  WRN]  ERROR - Category not found
+[2022-03-01 15:02:01.997 +07:00  INF]  PUT - Run api: https://localhost:44313/api/category/62170dd90f2e073e43fb78e3
+[2022-03-01 15:02:01.997 +07:00  INF]  PUT - Input:{"Name":"Truyện tranh"}
+[2022-03-01 15:02:02.000 +07:00  WRN]  ERROR - Category is exist
