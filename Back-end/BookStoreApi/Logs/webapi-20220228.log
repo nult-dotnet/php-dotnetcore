@@ -1,0 +1,196 @@
+[2022-02-28 12:57:20.929 +07:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-02-28 12:57:20.949 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/index.html - -
+[2022-02-28 12:57:20.991 +07:00  INF]  Hosting environment: Development
+[2022-02-28 12:57:20.992 +07:00  INF]  Content root path: D:\ASP.NET Core\BookStoreApi\BookStoreApi\
+[2022-02-28 12:57:21.863 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/index.html - - - 200 - text/html;charset=utf-8 921.4844ms
+[2022-02-28 12:57:21.868 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - -
+[2022-02-28 12:57:21.872 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 3.4345ms
+[2022-02-28 12:57:22.173 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - -
+[2022-02-28 12:57:22.282 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 108.7953ms
+[2022-02-28 14:20:01.475 +07:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-02-28 14:20:01.495 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/index.html - -
+[2022-02-28 14:20:01.513 +07:00  INF]  Hosting environment: Development
+[2022-02-28 14:20:01.513 +07:00  INF]  Content root path: D:\ASP.NET Core\BookStoreApi\BookStoreApi\
+[2022-02-28 14:20:01.742 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/index.html - - - 200 - text/html;charset=utf-8 252.8086ms
+[2022-02-28 14:20:01.744 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - -
+[2022-02-28 14:20:01.751 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 6.5571ms
+[2022-02-28 14:20:02.065 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - -
+[2022-02-28 14:20:02.214 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 149.4914ms
+[2022-02-28 14:20:39.779 +07:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-02-28 14:20:39.798 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/index.html - -
+[2022-02-28 14:20:39.816 +07:00  INF]  Hosting environment: Development
+[2022-02-28 14:20:39.816 +07:00  INF]  Content root path: D:\ASP.NET Core\BookStoreApi\BookStoreApi\
+[2022-02-28 14:20:40.072 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - -
+[2022-02-28 14:20:40.073 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/index.html - - - 200 - text/html;charset=utf-8 279.5488ms
+[2022-02-28 14:20:40.078 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 6.1101ms
+[2022-02-28 14:20:40.486 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - -
+[2022-02-28 14:20:40.614 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 128.3700ms
+[2022-02-28 14:20:54.756 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/api/role/cache - -
+[2022-02-28 14:20:54.784 +07:00  INF]  No cached response available for this request.
+[2022-02-28 14:20:54.799 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:20:54.824 +07:00  INF]  Route matched with {action = "GetTime", controller = "Role"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ContentResult GetTime() on controller BookStoreApi.Controllers.RoleController (BookStoreApi).
+[2022-02-28 14:20:56.087 +07:00  INF]  Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+[2022-02-28 14:20:56.100 +07:00  INF]  Executed action BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi) in 1269.1885ms
+[2022-02-28 14:20:56.101 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:20:56.101 +07:00  INF]  The response has been cached.
+[2022-02-28 14:20:56.103 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/api/role/cache - - - 200 2 text/plain;+charset=utf-8 1347.5186ms
+[2022-02-28 14:20:56.211 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/favicon.ico - -
+[2022-02-28 14:20:56.212 +07:00  INF]  No cached response available for this request.
+[2022-02-28 14:20:56.213 +07:00  INF]  The response could not be cached for this request.
+[2022-02-28 14:20:56.217 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/favicon.ico - - - 404 - - 5.4924ms
+[2022-02-28 14:21:00.027 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/api/role/cache - -
+[2022-02-28 14:21:00.031 +07:00  INF]  No cached response available for this request.
+[2022-02-28 14:21:00.031 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:21:00.031 +07:00  INF]  Route matched with {action = "GetTime", controller = "Role"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ContentResult GetTime() on controller BookStoreApi.Controllers.RoleController (BookStoreApi).
+[2022-02-28 14:21:00.032 +07:00  INF]  Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+[2022-02-28 14:21:00.032 +07:00  INF]  Executed action BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi) in 0.6684ms
+[2022-02-28 14:21:00.032 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:21:00.032 +07:00  INF]  The response has been cached.
+[2022-02-28 14:21:00.033 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/api/role/cache - - - 200 2 text/plain;+charset=utf-8 5.2128ms
+[2022-02-28 14:21:05.291 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/api/role/cache - -
+[2022-02-28 14:21:05.292 +07:00  INF]  No cached response available for this request.
+[2022-02-28 14:21:05.292 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:21:05.293 +07:00  INF]  Route matched with {action = "GetTime", controller = "Role"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ContentResult GetTime() on controller BookStoreApi.Controllers.RoleController (BookStoreApi).
+[2022-02-28 14:21:05.293 +07:00  INF]  Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+[2022-02-28 14:21:05.293 +07:00  INF]  Executed action BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi) in 0.7567ms
+[2022-02-28 14:21:05.294 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:21:05.294 +07:00  INF]  The response has been cached.
+[2022-02-28 14:21:05.294 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/api/role/cache - - - 200 3 text/plain;+charset=utf-8 2.4746ms
+[2022-02-28 14:22:33.958 +07:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-02-28 14:22:33.984 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/index.html - -
+[2022-02-28 14:22:34.007 +07:00  INF]  Hosting environment: Development
+[2022-02-28 14:22:34.007 +07:00  INF]  Content root path: D:\ASP.NET Core\BookStoreApi\BookStoreApi\
+[2022-02-28 14:22:34.545 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/index.html - - - 200 - text/html;charset=utf-8 563.4062ms
+[2022-02-28 14:22:34.545 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - -
+[2022-02-28 14:22:34.555 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 7.9260ms
+[2022-02-28 14:22:35.213 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - -
+[2022-02-28 14:22:35.683 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 469.8321ms
+[2022-02-28 14:23:41.989 +07:00  INF]  Request starting HTTP/1.1 GET https://localhost:44313/api/role/cache - -
+[2022-02-28 14:23:42.023 +07:00  INF]  No cached response available for this request.
+[2022-02-28 14:23:42.034 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:23:42.058 +07:00  INF]  Route matched with {action = "GetTime", controller = "Role"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ContentResult GetTime() on controller BookStoreApi.Controllers.RoleController (BookStoreApi).
+[2022-02-28 14:23:57.355 +07:00  INF]  Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+[2022-02-28 14:23:57.371 +07:00  INF]  Executed action BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi) in 15305.9333ms
+[2022-02-28 14:23:57.372 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:23:57.373 +07:00  INF]  The response has been cached.
+[2022-02-28 14:23:57.377 +07:00  INF]  Request finished HTTP/1.1 GET https://localhost:44313/api/role/cache - - - 200 3 text/plain;+charset=utf-8 15388.2034ms
+[2022-02-28 14:24:11.093 +07:00  INF]  Request starting HTTP/1.1 GET https://localhost:44313/api/role/cache - -
+[2022-02-28 14:24:11.100 +07:00  INF]  Serving response from cache.
+[2022-02-28 14:24:11.101 +07:00  INF]  Request finished HTTP/1.1 GET https://localhost:44313/api/role/cache - - - 200 3 text/plain;+charset=utf-8 7.6246ms
+[2022-02-28 14:25:09.984 +07:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-02-28 14:25:10.012 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/index.html - -
+[2022-02-28 14:25:10.041 +07:00  INF]  Hosting environment: Development
+[2022-02-28 14:25:10.042 +07:00  INF]  Content root path: D:\ASP.NET Core\BookStoreApi\BookStoreApi\
+[2022-02-28 14:25:10.648 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/index.html - - - 200 - text/html;charset=utf-8 629.7037ms
+[2022-02-28 14:25:10.660 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - -
+[2022-02-28 14:25:10.679 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 12.2646ms
+[2022-02-28 14:25:11.058 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - -
+[2022-02-28 14:25:11.421 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 363.8786ms
+[2022-02-28 14:25:16.160 +07:00  INF]  Request starting HTTP/1.1 POST https://localhost:44313/api/role/cache - 0
+[2022-02-28 14:25:16.175 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:25:16.185 +07:00  INF]  Route matched with {action = "GetTime", controller = "Role"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ContentResult GetTime() on controller BookStoreApi.Controllers.RoleController (BookStoreApi).
+[2022-02-28 14:25:20.668 +07:00  INF]  Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+[2022-02-28 14:25:20.684 +07:00  INF]  Executed action BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi) in 4490.3659ms
+[2022-02-28 14:25:20.687 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:25:20.690 +07:00  INF]  Request finished HTTP/1.1 POST https://localhost:44313/api/role/cache - 0 - 200 3 text/plain;+charset=utf-8 4529.9946ms
+[2022-02-28 14:25:25.644 +07:00  INF]  Request starting HTTP/1.1 GET https://localhost:44313/api/role/cache - -
+[2022-02-28 14:25:25.660 +07:00  INF]  No cached response available for this request.
+[2022-02-28 14:25:25.661 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.RoleController.GetRoleById (BookStoreApi)'
+[2022-02-28 14:25:25.699 +07:00  INF]  Route matched with {action = "GetRoleById", controller = "Role"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApi.Models.Role]] GetRoleById(System.String) on controller BookStoreApi.Controllers.RoleController (BookStoreApi).
+[2022-02-28 14:25:26.576 +07:00  INF]  Executed action BookStoreApi.Controllers.RoleController.GetRoleById (BookStoreApi) in 876.8508ms
+[2022-02-28 14:25:26.578 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.RoleController.GetRoleById (BookStoreApi)'
+[2022-02-28 14:25:26.582 +07:00  ERR]  An unhandled exception has occurred while executing the request.
+System.FormatException: 'cache' is not a valid 24 digit hex string.
+   at MongoDB.Bson.ObjectId.Parse(String s)
+   at MongoDB.Bson.Serialization.Serializers.StringSerializer.SerializeValue(BsonSerializationContext context, BsonSerializationArgs args, String value)
+   at MongoDB.Bson.Serialization.Serializers.SealedClassSerializerBase`1.Serialize(BsonSerializationContext context, BsonSerializationArgs args, TValue value)
+   at MongoDB.Bson.Serialization.Serializers.SerializerBase`1.MongoDB.Bson.Serialization.IBsonSerializer.Serialize(BsonSerializationContext context, BsonSerializationArgs args, Object value)
+   at MongoDB.Bson.Serialization.IBsonSerializerExtensions.Serialize(IBsonSerializer serializer, BsonSerializationContext context, Object value)
+   at MongoDB.Bson.Serialization.IBsonSerializerExtensions.ToBsonValue(IBsonSerializer serializer, Object value)
+   at MongoDB.Driver.Linq.Linq2Implementation.Translators.PredicateTranslator.TranslateComparison(Expression variableExpression, ExpressionType operatorType, ConstantExpression constantExpression)
+   at MongoDB.Driver.Linq.Linq2Implementation.Translators.PredicateTranslator.TranslateComparison(BinaryExpression binaryExpression)
+   at MongoDB.Driver.Linq.Linq2Implementation.Translators.PredicateTranslator.Translate(Expression node)
+   at MongoDB.Driver.Linq.Linq2Implementation.Translators.PredicateTranslator.Translate(Expression node, IBsonSerializerRegistry serializerRegistry)
+   at MongoDB.Driver.Linq.Linq2Implementation.Translators.PredicateTranslator.Translate[TDocument](Expression`1 predicate, IBsonSerializer`1 parameterSerializer, IBsonSerializerRegistry serializerRegistry)
+   at MongoDB.Driver.Linq.Linq2Implementation.LinqProviderAdapterV2.TranslateExpressionToFilter[TDocument](Expression`1 expression, IBsonSerializer`1 documentSerializer, IBsonSerializerRegistry serializerRegistry)
+   at MongoDB.Driver.ExpressionFilterDefinition`1.Render(IBsonSerializer`1 documentSerializer, IBsonSerializerRegistry serializerRegistry, LinqProvider linqProvider)
+   at MongoDB.Driver.MongoCollectionImpl`1.CreateFindOperation[TProjection](FilterDefinition`1 filter, FindOptions`2 options)
+   at MongoDB.Driver.MongoCollectionImpl`1.FindAsync[TProjection](IClientSessionHandle session, FilterDefinition`1 filter, FindOptions`2 options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.<>c__DisplayClass48_0`1.<FindAsync>b__0(IClientSessionHandle session)
+   at MongoDB.Driver.MongoCollectionImpl`1.UsingImplicitSessionAsync[TResult](Func`2 funcAsync, CancellationToken cancellationToken)
+   at MongoDB.Driver.IAsyncCursorSourceExtensions.FirstOrDefaultAsync[TDocument](IAsyncCursorSource`1 source, CancellationToken cancellationToken)
+   at BookStoreApi.Services.RolesService.GetRoleById(String id) in D:\ASP.NET Core\BookStoreApi\BookStoreApi\Services\RolesService.cs:line 17
+   at BookStoreApi.Controllers.RoleController.GetRoleById(String id) in D:\ASP.NET Core\BookStoreApi\BookStoreApi\Controllers\RoleController.cs:line 29
+   at lambda_method8(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[2022-02-28 14:25:27.464 +07:00  INF]  Request finished HTTP/1.1 GET https://localhost:44313/api/role/cache - - - 500 - text/plain;+charset=utf-8 1819.7850ms
+[2022-02-28 14:25:31.413 +07:00  INF]  Request starting HTTP/1.1 POST https://localhost:44313/api/role/cache - 0
+[2022-02-28 14:25:31.414 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:25:31.415 +07:00  INF]  Route matched with {action = "GetTime", controller = "Role"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ContentResult GetTime() on controller BookStoreApi.Controllers.RoleController (BookStoreApi).
+[2022-02-28 14:27:58.490 +07:00  INF]  Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+[2022-02-28 14:27:58.506 +07:00  INF]  Executed action BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi) in 147087.9499ms
+[2022-02-28 14:27:58.507 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.RoleController.GetTime (BookStoreApi)'
+[2022-02-28 14:27:58.510 +07:00  INF]  Request finished HTTP/1.1 POST https://localhost:44313/api/role/cache - 0 - 200 3 text/plain;+charset=utf-8 147095.1828ms
+[2022-02-28 14:28:49.902 +07:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-02-28 14:28:49.918 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/index.html - -
+[2022-02-28 14:28:49.941 +07:00  INF]  Hosting environment: Development
+[2022-02-28 14:28:49.941 +07:00  INF]  Content root path: D:\ASP.NET Core\BookStoreApi\BookStoreApi\
+[2022-02-28 14:28:50.305 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - -
+[2022-02-28 14:28:50.307 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/index.html - - - 200 - text/html;charset=utf-8 393.1113ms
+[2022-02-28 14:28:50.317 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 11.1860ms
+[2022-02-28 14:28:50.701 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - -
+[2022-02-28 14:28:50.968 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 267.6000ms
+[2022-02-28 14:29:02.350 +07:00  INF]  Request starting HTTP/1.1 GET https://localhost:44313/api/category - -
+[2022-02-28 14:29:02.361 +07:00  INF]  No cached response available for this request.
+[2022-02-28 14:29:02.370 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.CategoryController.GetCategory (BookStoreApi)'
+[2022-02-28 14:29:02.393 +07:00  INF]  Route matched with {action = "GetCategory", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[BookStoreApi.Models.Category]] GetCategory() on controller BookStoreApi.Controllers.CategoryController (BookStoreApi).
+[2022-02-28 14:29:03.054 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-02-28 14:29:03.310 +07:00  INF]  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BookStoreApi.Models.Category, BookStoreApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2022-02-28 14:29:03.529 +07:00  INF]  Executed action BookStoreApi.Controllers.CategoryController.GetCategory (BookStoreApi) in 1126.514ms
+[2022-02-28 14:29:03.531 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.CategoryController.GetCategory (BookStoreApi)'
+[2022-02-28 14:29:03.531 +07:00  INF]  The response could not be cached for this request.
+[2022-02-28 14:29:03.532 +07:00  INF]  Request finished HTTP/1.1 GET https://localhost:44313/api/category - - - 200 1700 application/json;+charset=utf-8 1181.8671ms
+[2022-02-28 14:29:43.951 +07:00  INF]  Request starting HTTP/1.1 GET https://localhost:44313/api/category/6215ba21e51020cb0a7e1e60 - -
+[2022-02-28 14:29:43.955 +07:00  INF]  No cached response available for this request.
+[2022-02-28 14:29:43.956 +07:00  INF]  Executing endpoint 'BookStoreApi.Controllers.CategoryController.GetCategoryById (BookStoreApi)'
+[2022-02-28 14:29:43.971 +07:00  INF]  Route matched with {action = "GetCategoryById", controller = "Category"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[BookStoreApi.Models.Category]] GetCategoryById(System.String) on controller BookStoreApi.Controllers.CategoryController (BookStoreApi).
+[2022-02-28 14:29:43.980 +07:00  INF]  GET (ItemById) - Run api: https://localhost:44313/api/category/6215ba21e51020cb0a7e1e60
+[2022-02-28 14:29:44.029 +07:00  WRN]  ERROR - Category not found
+[2022-02-28 14:29:44.032 +07:00  INF]  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+[2022-02-28 14:29:44.045 +07:00  INF]  Executed action BookStoreApi.Controllers.CategoryController.GetCategoryById (BookStoreApi) in 73.3377ms
+[2022-02-28 14:29:44.045 +07:00  INF]  Executed endpoint 'BookStoreApi.Controllers.CategoryController.GetCategoryById (BookStoreApi)'
+[2022-02-28 14:29:44.045 +07:00  INF]  The response could not be cached for this request.
+[2022-02-28 14:29:44.045 +07:00  INF]  Request finished HTTP/1.1 GET https://localhost:44313/api/category/6215ba21e51020cb0a7e1e60 - - - 400 32 application/json;+charset=utf-8 93.9779ms
+[2022-02-28 14:34:42.659 +07:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-02-28 14:34:42.673 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/index.html - -
+[2022-02-28 14:34:42.691 +07:00  INF]  Hosting environment: Development
+[2022-02-28 14:34:42.691 +07:00  INF]  Content root path: D:\ASP.NET Core\BookStoreApi\BookStoreApi\
+[2022-02-28 14:34:42.906 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/index.html - - - 200 - text/html;charset=utf-8 235.8994ms
+[2022-02-28 14:34:42.916 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - -
+[2022-02-28 14:34:42.923 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 6.2422ms
+[2022-02-28 14:34:43.261 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - -
+[2022-02-28 14:34:43.411 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 149.8875ms
+[2022-02-28 14:35:23.991 +07:00  INF]  Application started. Press Ctrl+C to shut down.
+[2022-02-28 14:35:24.008 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/index.html - -
+[2022-02-28 14:35:24.028 +07:00  INF]  Hosting environment: Development
+[2022-02-28 14:35:24.028 +07:00  INF]  Content root path: D:\ASP.NET Core\BookStoreApi\BookStoreApi\
+[2022-02-28 14:35:24.354 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/index.html - - - 200 - text/html;charset=utf-8 350.9653ms
+[2022-02-28 14:35:24.358 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - -
+[2022-02-28 14:35:24.364 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 6.0748ms
+[2022-02-28 14:35:24.748 +07:00  INF]  Request starting HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - -
+[2022-02-28 14:35:24.879 +07:00  INF]  Request finished HTTP/2 GET https://localhost:44313/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 130.5429ms
