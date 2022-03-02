@@ -37,6 +37,7 @@ namespace BookStoreApi.Controllers
             }
             return Ok(book);
         }
+        
         [HttpPost]
         public async Task<IActionResult> CreateNewBook([FromForm] BookDTO bookDTO,IFormFile File)
         {
@@ -90,7 +91,9 @@ namespace BookStoreApi.Controllers
             var image = System.IO.File.OpenRead(pathImage);
             return File(image, "image/jpeg");
         }
+
         [HttpPut("detail/{id:length(24)}")]
+        [RequestFormLimits(MultipartBodyLengthLimit = 2147483648)]
         public async Task<IActionResult> UpdateBookItem_id(string id, [FromForm] BookDTO updateBook)
         {
             var book = await this._bookService.GetAsync(id);

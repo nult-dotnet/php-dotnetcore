@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/../BookStore/layouts/css/style_slidebar.css">
-<script src="/../BookStore/vendor/jquery/jquery.min.js"></script>
+<link rel="stylesheet" href="/../../php-dotnetcore/Front-end/BookStore/layouts/css/style_slidebar.css">
+<script src="/../../php-dotnetcore/Front-end/BookStore/vendor/jquery/jquery.min.js"></script>
 
 <div class="slidebar_container">
     <a class="slidebar_header">
