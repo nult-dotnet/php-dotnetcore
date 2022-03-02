@@ -223,3 +223,4 @@ D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\obj\Debug\net6.0\BookStoreA
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\obj\Debug\net6.0\ref\BookStoreApi.dll
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\obj\Debug\net6.0\BookStoreApi.pdb
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\obj\Debug\net6.0\BookStoreApi.genruntimeconfig.cache
+D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\BookStoreApi.staticwebassets.runtime.json

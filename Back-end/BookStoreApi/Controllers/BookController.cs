@@ -4,7 +4,8 @@ using BookStoreApi.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Dynamic;
-
+using System.Net.Http.Headers;
+using System;
 namespace BookStoreApi.Controllers
 {
     [ApiController]
@@ -37,12 +38,12 @@ namespace BookStoreApi.Controllers
             return Ok(book);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateNewBook([FromBody] BookDTO bookDTO)
+        public async Task<IActionResult> CreateNewBook([FromForm] BookDTO bookDTO,IFormFile File)
         {
-            Book newBook = new Book();
+            Book newBook = new Book();    
             this._mapper.Map(bookDTO, newBook);
             var findBook = await this._bookService.ValidateBook(newBook.ID,newBook.BookName);
-            if(findBook != null)
+            if(findBook != null)    
             {
                 ModelState.AddModelError("Error", "Name is exits");
                 return BadRequest(ModelState);
@@ -53,15 +54,44 @@ namespace BookStoreApi.Controllers
                 ModelState.AddModelError("Error", "Foreign key (CategoryId) does not exist");
                 return BadRequest(ModelState);
             }
+            //Upload image
+                var formCollection = await Request.ReadFormAsync();
+                var image = formCollection.Files.First();
+                var folderName = Path.Combine("wwwroot", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                if (image.Length <= 0)
+                {
+                    return BadRequest();
+                }
+                var fileName = Path.GetRandomFileName();
+                var fullPath = Path.Combine(pathToSave, fileName);
+                using (var stream = System.IO.File.Create(fullPath))
+                {
+                    await image.CopyToAsync(stream);
+                }
             findCategory.Quantity += 1;
             await this._categoryService.UpdateCategory(findCategory.Id, findCategory);
             CategoryShow category = this._mapper.Map<CategoryShow>(findCategory);
             newBook.Category = category;
+            newBook.ImagePath = fileName;
             await this._bookService.CreateAsync(newBook);
             return CreatedAtAction(nameof(GetItemBook), new { id = newBook.ID }, newBook);
         }
+        [HttpGet("image/{dbPath}")]
+        public IActionResult SeePicture(string dbPath)
+        {
+            var folderName = Path.Combine("wwwroot", "Images");
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+            var pathImage = Path.Combine(pathToSave, dbPath).Replace("/", "\\");
+            if (!System.IO.File.Exists(pathImage))
+            {
+                ModelState.AddModelError("Error", $"Could not find file {dbPath}");
+            }
+            var image = System.IO.File.OpenRead(pathImage);
+            return File(image, "image/jpeg");
+        }
         [HttpPut("detail/{id:length(24)}")]
-        public async Task<IActionResult> UpdateBookItem_id(string id, [FromBody] BookDTO updateBook)
+        public async Task<IActionResult> UpdateBookItem_id(string id, [FromForm] BookDTO updateBook)
         {
             var book = await this._bookService.GetAsync(id);
             if(book is null)
@@ -79,6 +109,27 @@ namespace BookStoreApi.Controllers
             {
                 ModelState.AddModelError("Error", "Foreign key (CategoryId) does not exist");
                 return BadRequest(ModelState);
+            }
+            //Upload file if file exist
+            var formRequest = await Request.ReadFormAsync();
+            var file = formRequest.Files.FirstOrDefault();
+            if(file != null)
+            {
+                var folderName = Path.Combine("wwwroot", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                var fileOld = Path.Combine(pathToSave, book.ImagePath).Replace("/", "\\");
+                System.IO.File.Delete(fileOld);
+                var fileNew = Path.GetRandomFileName();
+                var pathFileNew = Path.Combine(pathToSave,fileNew);
+                if(file.Length <= 0)
+                {
+                    return BadRequest();
+                }
+                using(var stream = System.IO.File.Create(pathFileNew))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                book.ImagePath = fileNew;
             }
             if(findCategory.Id != book.CategoryId) {
                 if(book.CategoryId != null)
@@ -111,7 +162,11 @@ namespace BookStoreApi.Controllers
                 category.Quantity -= 1;
                 await this._categoryService.UpdateCategory(category.Id, category);
             }
+            var folderName = Path.Combine("wwwroot", "Images");
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+            var pathToFile = Path.Combine(pathToSave, book.ImagePath).Replace("/", "\\");
             await this._bookService.DeleteAsync(id);
+            System.IO.File.Delete(pathToFile);
             return StatusCode(200,"Delete success");
         }
         [HttpPatch("{id:length(24)}")]

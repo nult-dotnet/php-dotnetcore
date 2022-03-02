@@ -39,7 +39,8 @@
                         <table class="table">
                             <thead class="bg-dark"> 
                                 <th class="text-center" width="10%">STT</th>
-                                <th width="35%">Tên sách</th>
+                                <th width="10%">Hình ảnh</th>
+                                <th>Tên sách</th>
                                 <th class="">Giá bán niêm yết</th>
                                 <th>Phân loại sách</th>
                                 <th class="text-center">Trong kho</th>
@@ -52,7 +53,9 @@
                                     <?php $i++;?>
                                     <tr>
                                         <td class="text-center"><b><?=$i?></b></td>
+                                        <td><img src="https://localhost:44313/api/book/image/<?=$value["imagePath"]?>" width="100%"></td>
                                         <td><b><?=$value["bookName"]?></b></td>
+                                       
                                         <td class=""><b class="text-success"><?=number_format($value["price"],0,',','.')?> VND</b></td>
                                         <td><?=$category = !empty($value["category"]["categoryName"]) ? $value["category"]["categoryName"]:"";?></td>
                                         <td class="text-center quantity"><b class="text-danger"><?=$value["quantity"] - $value["sold"]?></b> <i data-id="<?=$value["id"]?>" class="text-danger edit_quantity fas fa-pen-square"></i></td>

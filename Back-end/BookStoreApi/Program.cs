@@ -1,6 +1,8 @@
 using BookStoreApi.Services;
 using BookStoreApi.Settings;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.Extensions.FileProviders;
 using Serilog;
 using Serilog.Filters;
 
@@ -17,7 +19,7 @@ builder.Services.AddHttpLogging(logging =>
 
 });
 // Add services to the container.
-//log file
+//Config log file
 var logger = new LoggerConfiguration()
   .ReadFrom.Configuration(builder.Configuration)
   .Filter.ByExcluding(Matching.FromSource("Microsoft"))
@@ -27,7 +29,12 @@ var logger = new LoggerConfiguration()
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 builder.Logging.AddConsole();
-
+//Config upload file
+builder.Services.Configure<FormOptions>(o => {
+    o.ValueLengthLimit = int.MaxValue;
+    o.MultipartBodyLengthLimit = int.MaxValue;
+    o.MemoryBufferThreshold = int.MaxValue;
+});
 builder.Services.Configure<BookStoreDatabaseSetting>(builder.Configuration.GetSection("BookStoreDatabase"));
 builder.Services.AddSingleton<BooksService>();
 builder.Services.AddSingleton<UsersService>();
@@ -61,6 +68,12 @@ app.UseResponseCaching();
 
 app.UseAuthorization();
 
+app.UseStaticFiles();
+/*app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"StaticFiles")),
+    RequestPath = new PathString("/StaticFiles")
+});*/
 app.MapControllers();
 app.UseHttpLogging();
 app.Run();

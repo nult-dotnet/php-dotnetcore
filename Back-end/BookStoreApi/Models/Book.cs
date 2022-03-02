@@ -13,9 +13,10 @@ namespace BookStoreApi.Models
         public string ID { get; set; }
         [BsonElement("Name")]
         public string BookName { get; set; }
+        public string ImagePath { get; set; }
         public int Price { get; set; }
         public string Currency { get; set; } = "VND";
-       public int Quantity { get; set; }
+        public int Quantity { get; set; }
         public int Sold { get; set; }
         [ForeignKey("CategoryFK")]
         public string CategoryId { get; set; }
