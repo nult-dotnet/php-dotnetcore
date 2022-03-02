@@ -39,6 +39,7 @@ namespace BookStoreApi.Controllers
         }
         
         [HttpPost]
+        [RequestFormLimits(MultipartBodyLengthLimit = 2147483648)]
         public async Task<IActionResult> CreateNewBook([FromForm] BookDTO bookDTO,IFormFile File)
         {
             Book newBook = new Book();    
