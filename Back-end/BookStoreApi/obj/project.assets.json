@@ -2473,6 +2473,7 @@
       "Microsoft.AspNetCore.JsonPatch >= 6.0.2",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.2",
       "Microsoft.AspNetCore.Server.Kestrel >= 2.2.0",
+      "Microsoft.Extensions.DependencyInjection.Abstractions >= 6.0.0",
       "MongoDB.Driver >= 2.14.1",
       "Serilog.AspNetCore >= 5.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
@@ -2532,6 +2533,10 @@
           "Microsoft.AspNetCore.Server.Kestrel": {
             "target": "Package",
             "version": "[2.2.0, )"
+          },
+          "Microsoft.Extensions.DependencyInjection.Abstractions": {
+            "target": "Package",
+            "version": "[6.0.0, )"
           },
           "MongoDB.Driver": {
             "target": "Package",

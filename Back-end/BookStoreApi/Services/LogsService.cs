@@ -2,16 +2,16 @@
 using BookStoreApi.Settings;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-
+using BookStoreApi.Interfaces;
 namespace BookStoreApi.Services
 {
-    public class LogsService
+    public class LogsService : ILogService
     {
         private readonly IMongoCollection<Logs> _logsCollection;
-        public LogsService()
+        public LogsService(IOptions<BookStoreDatabaseSetting> bookStoreDatabaseSetting)
         {
-            var clientMongo = new MongoClient("mongodb://localhost:27017");
-            var DatabaseMongo = clientMongo.GetDatabase("BookStore");
+            var clientMongo = new MongoClient(bookStoreDatabaseSetting.Value.ConnectionString);
+            var DatabaseMongo = clientMongo.GetDatabase(bookStoreDatabaseSetting.Value.DatabaseName);
             this._logsCollection = DatabaseMongo.GetCollection<Logs>("Logs");
         }
         public async Task<List<Logs>> GetLogs() => await this._logsCollection.Find(_=>true).SortByDescending(x=>x.Time).ToListAsync();

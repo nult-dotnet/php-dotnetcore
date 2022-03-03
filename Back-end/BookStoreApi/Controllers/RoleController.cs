@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using BookStoreApi.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Cors;
-
+using BookStoreApi.Interfaces;
 namespace BookStoreApi.Controllers
 {
     [EnableCors("MyPolicy")]
@@ -11,10 +11,10 @@ namespace BookStoreApi.Controllers
     [Route("api/[controller]")]
     public class RoleController:ControllerBase
     {
-        private readonly RolesService _rolesService;
-        private readonly UsersService _usersService;
+        private readonly IRoleService _rolesService;
+        private readonly IUserService _usersService;
         private readonly IMapper _mapper;
-        public RoleController(RolesService roleService,UsersService usersService,IMapper mapper)
+        public RoleController(IRoleService roleService,IUserService usersService,IMapper mapper)
         {
             _rolesService = roleService;
             _usersService = usersService;

@@ -1,3 +1,4 @@
+using BookStoreApi.Interfaces;
 using BookStoreApi.Services;
 using BookStoreApi.Settings;
 using Microsoft.AspNetCore.Http.Features;
@@ -29,7 +30,6 @@ builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 builder.Logging.AddConsole();
 
-//Config upload file
 builder.Services.Configure<BookStoreDatabaseSetting>(builder.Configuration.GetSection("BookStoreDatabase"));
 builder.Services.AddSingleton<BooksService>();
 builder.Services.AddSingleton<UsersService>();
@@ -37,6 +37,15 @@ builder.Services.AddSingleton<RolesService>();
 builder.Services.AddSingleton<CategoryService>();
 builder.Services.AddSingleton<BillsService>();
 builder.Services.AddSingleton<LogsService>();
+
+//Dependency config
+builder.Services.AddScoped<IRoleService,RolesService>();
+builder.Services.AddScoped<ICategoryService,CategoryService>();
+builder.Services.AddScoped<IBookService,BooksService>();
+builder.Services.AddScoped<IUserService, UsersService>();
+builder.Services.AddScoped<IBillService,BillsService>();
+builder.Services.AddScoped<ILogService,LogsService>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

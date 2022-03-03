@@ -2,20 +2,19 @@
 using BookStoreApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using Microsoft.Extensions.Logging;
-
+using BookStoreApi.Interfaces;
 namespace BookStoreApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
-        private readonly CategoryService _categoryService;
-        private readonly BooksService _booksService;
+        private readonly ICategoryService _categoryService;
+        private readonly IBookService _booksService;
         private readonly IMapper _mapper;
         private readonly ILogger _logger;
-        private readonly LogsService _logsService;
-        public CategoryController(CategoryService categoryService,BooksService booksService,IMapper mapper,ILogger<CategoryController> logger,LogsService logsService)
+        private readonly ILogService _logsService;
+        public CategoryController(ICategoryService categoryService,IBookService booksService,IMapper mapper,ILogger<CategoryController> logger,ILogService logsService)
         {
             _categoryService = categoryService;
             _booksService = booksService;
@@ -79,11 +78,14 @@ namespace BookStoreApi.Controllers
                 return BadRequest(ModelState);
             }
             List<Book> listCategory = await this._booksService.ListBookByCategoryId(findCategory.Id);
-            foreach(Book book in listCategory)
+            if(listCategory != null)
             {
-                book.CategoryId = null;
-                book.Category = null;
-                await this._booksService.UpdateAsync(book.ID, book);
+                foreach (Book book in listCategory)
+                {
+                    book.CategoryId = null;
+                    book.Category = null;
+                    await this._booksService.UpdateAsync(book.ID, book);
+                }
             }
             await this._logsService.CreateLog((int)LogLevel.Information, Method.DELETE, $"https://localhost:44313/api/category/{id}",id, "Delete category success", null);
             await this._categoryService.DeleteCategory(findCategory.Id);
@@ -113,10 +115,13 @@ namespace BookStoreApi.Controllers
             this._mapper.Map(updateCategory,findCategory);
             CategoryShow category = this._mapper.Map<CategoryShow>(findCategory);
             List<Book> listBook = await this._booksService.ListBookByCategoryId(findCategory.Id);
-            foreach (Book book in listBook)
+            if(listBook != null)
             {
-                book.Category = category;
-                await this._booksService.UpdateAsync(book.ID, book);
+                foreach (Book book in listBook)
+                {
+                    book.Category = category;
+                    await this._booksService.UpdateAsync(book.ID, book);
+                }
             }
             await this._categoryService.UpdateCategory(findCategory.Id, findCategory);
             this._logger.LogInformation(MyLogEvents.UpdateItem, "{e} - Output: {output}", MyLogEventTitle.UpdateItem, MyLogEvents.ShowObject(findCategory));

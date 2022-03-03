@@ -1,6 +1,5 @@
 ﻿using Moq;
 using BookStoreApi.Controllers;
-using BookStoreApi.Services;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -9,17 +8,19 @@ using BookStoreApi.Models;
 using Xunit;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using BookStoreApi.Interfaces;
+using System.Collections.Generic;
 
 namespace BookStoreApi.Test
 {
     public class CategoryControllerTest
     {
         private readonly CategoryController _testController;
-        private readonly Mock<CategoryService> _mockCategoryService = new Mock<CategoryService>();
+        private readonly Mock<ICategoryService> _mockCategoryService = new Mock<ICategoryService>();
         private readonly Mock<IMapper> _mockMapper = new Mock<IMapper>();
-        private readonly Mock<BooksService> _mockBookService = new Mock<BooksService>();
+        private readonly Mock<IBookService> _mockBookService = new Mock<IBookService>();
         private readonly Mock<ILogger<CategoryController>> _mockLogger = new Mock<ILogger<CategoryController>>();
-        private readonly Mock<LogsService> _mockLogSevice = new Mock<LogsService>();
+        private readonly Mock<ILogService> _mockLogSevice = new Mock<ILogService>();
         public CategoryControllerTest()
         {
             _testController = new CategoryController(_mockCategoryService.Object, _mockBookService.Object, _mockMapper.Object, _mockLogger.Object,_mockLogSevice.Object);
@@ -109,6 +110,7 @@ namespace BookStoreApi.Test
             //Arrange
             string categoryId = Convert.ToString(ObjectId.GenerateNewId());
             Category findCategory = new Category();
+            List<Book> listBook = new List<Book>();
             _mockCategoryService.Setup(x=>x.GetCategoryById(categoryId)).ReturnsAsync(findCategory);
             //Act
             IActionResult actionResult = await _testController.DeleteCategory(categoryId);
@@ -158,15 +160,14 @@ namespace BookStoreApi.Test
             //Arrange
             string categoryId = Convert.ToString(ObjectId.GenerateNewId());
             Category findCategory = new Category();
-            Category newCategory = new Category();
             CategoryDTO categoryDTO = new CategoryDTO
             {
                 Name = "Lập trình"
             };
-            _mockMapper.Setup(x => x.Map(categoryDTO, newCategory));
             _mockCategoryService.Setup(x=>x.GetCategoryById(categoryId)).ReturnsAsync(findCategory);
+            _mockMapper.Setup(x => x.Map(categoryDTO, findCategory));
             _mockCategoryService.Setup(x => x.ValidateCategory(categoryId, categoryDTO.Name)).ReturnsAsync(() => null);
-            _mockCategoryService.Setup(x => x.UpdateCategory(categoryId, newCategory));
+            _mockCategoryService.Setup(x => x.UpdateCategory(categoryId, findCategory));
             //Act
             IActionResult actionResult = await _testController.UpdateCategory(categoryId,categoryDTO);
             //Assert

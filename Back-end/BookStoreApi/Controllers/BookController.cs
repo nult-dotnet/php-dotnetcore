@@ -3,19 +3,17 @@ using BookStoreApi.Models;
 using BookStoreApi.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using System.Dynamic;
-using System.Net.Http.Headers;
-using System;
+using BookStoreApi.Interfaces;
 namespace BookStoreApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class BookController : ControllerBase
     {
-        private readonly BooksService _bookService;
-        private readonly CategoryService _categoryService;
+        private readonly IBookService _bookService;
+        private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
-        public BookController(BooksService booksService,CategoryService categoryService,IMapper mapper)
+        public BookController(IBookService booksService,ICategoryService categoryService,IMapper mapper)
         {
             _bookService = booksService;
             _categoryService = categoryService;

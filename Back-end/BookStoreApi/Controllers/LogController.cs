@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BookStoreApi.Models;
 using BookStoreApi.Services;
+using BookStoreApi.Interfaces;
 namespace BookStoreApi.Controllers
 {
     [ApiController]
     [Route("api/{controller}")]
     public class LogController : ControllerBase
     {
-        private readonly LogsService _logService;
-        public LogController(LogsService logService)
+        private readonly ILogService _logService;
+        public LogController(ILogService logService)
         {
             this._logService = logService;
         }

@@ -3,18 +3,18 @@ using BookStoreApi.Models;
 using BookStoreApi.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-
+using BookStoreApi.Interfaces;
 namespace BookStoreApi.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
     public class UserController : ControllerBase
     {
-        private readonly UsersService _userService;
-        private readonly RolesService _roleService;
+        private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
         private readonly IMapper _mapper;
 
-        public UserController(UsersService userService,RolesService roleService,IMapper mapper)
+        public UserController(IUserService userService,IRoleService roleService,IMapper mapper)
         {
             _userService = userService;
             _roleService = roleService;

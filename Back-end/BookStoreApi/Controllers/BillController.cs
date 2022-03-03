@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BookStoreApi.Services;
 using BookStoreApi.Models;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
+using BookStoreApi.Interfaces;
 using System.Linq;
 using AutoMapper;
 namespace BookStoreApi.Controllers
@@ -10,10 +10,10 @@ namespace BookStoreApi.Controllers
     [Route("api/[controller]")]
     public class BillController:ControllerBase
     {
-        private readonly BillsService _billService;
-        private readonly BooksService _booksService;
+        private readonly IBillService _billService;
+        private readonly IBookService _booksService;
         private readonly IMapper _mapper;
-        public BillController(BillsService billService,BooksService booksService,IMapper mapper)
+        public BillController(IBillService billService,IBookService booksService,IMapper mapper)
         {
             _billService = billService;
             _booksService = booksService;
