@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Cors;
 using BookStoreApi.Interfaces;
 namespace BookStoreApi.Controllers
 {
-    [EnableCors("MyPolicy")]
     [ApiController]
     [Route("api/[controller]")]
     public class RoleController:ControllerBase
@@ -34,24 +33,19 @@ namespace BookStoreApi.Controllers
             }
             return Ok(findRole);
         }
-
-        [EnableCors("MyPolicy")]
-        [HttpPost("cache")]
-        [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Any, NoStore = false)]
-        public ContentResult GetTime() => Content(DateTime.Now.Millisecond.ToString());
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> CreateRole([FromBody] RoleDTO createRole)
         {
             Role newRole = new Role();
             this._mapper.Map(createRole, newRole);
             Role validateRole = await this._rolesService.ValidateRoleName(newRole.Id, newRole.Name);
-            if(validateRole is null)
+            if(validateRole != null)
             {
-                await this._rolesService.CreateRole(newRole);
-                return CreatedAtAction(nameof(GetRoleById), new { id = newRole.Id }, newRole);
+                ModelState.AddModelError("Error", "Role is exist");
+                return BadRequest(ModelState);
             }
-            ModelState.AddModelError("Error", "Role is exist");
-            return BadRequest(ModelState);
+            await this._rolesService.CreateRole(newRole);
+            return CreatedAtAction(nameof(GetRoleById), new { id = newRole.Id }, newRole);
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRole(string id)
@@ -59,18 +53,21 @@ namespace BookStoreApi.Controllers
             var findRole = await this._rolesService.GetRoleById(id);
             if(findRole is null)
             {
-                ModelState.AddModelError("Error", "Id not found");
+                ModelState.AddModelError("Error", "Role not found");
                 return BadRequest(ModelState);
             }
-            await this._rolesService.DeleteRoleById(id);
             List<User> listUser = await this._usersService.GetListUserByRoleId(id);
-            foreach(User user in listUser)
+            if (listUser != null)
             {
-                user.RoleId = null;
-                user.Role = null;
-                await this._usersService.UpdateUserAsync(user.Id,user);
+                foreach (User user in listUser)
+                {
+                    user.RoleId = null;
+                    user.Role = null;
+                    await this._usersService.UpdateUserAsync(user.Id, user);
+                }
             }
-            return StatusCode(200,"Delete success");
+            await this._rolesService.DeleteRoleById(id);
+            return NoContent();
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRole(string id,[FromBody] RoleDTO updateRole)
@@ -78,7 +75,7 @@ namespace BookStoreApi.Controllers
             var findRole = await this._rolesService.GetRoleById(id);
             if(findRole is null)
             {
-                ModelState.AddModelError("Error", "Id not found");
+                ModelState.AddModelError("Error", "Role not found");
                 return BadRequest(ModelState);
             }
             var validateRole = await this._rolesService.ValidateRoleName(id, updateRole.Name);
@@ -89,11 +86,14 @@ namespace BookStoreApi.Controllers
             }
             this._mapper.Map(updateRole, findRole);
             RoleShow roleShow = this._mapper.Map<RoleShow>(findRole);
-            List<User> findUser = await this._usersService.GetListUserByRoleId(id);
-            foreach(User item in findUser)
+            List<User> listUser = await this._usersService.GetListUserByRoleId(id);
+            if(listUser != null)
             {
-                item.Role = roleShow;
-                await this._usersService.UpdateUserAsync(item.Id, item);
+                foreach (User item in listUser)
+                {
+                    item.Role = roleShow;
+                    await this._usersService.UpdateUserAsync(item.Id, item);
+                }
             }
             await this._rolesService.UpdateRoleById(findRole.Id, findRole);
             return CreatedAtAction(nameof(GetRoleById), new { id = findRole.Id },findRole);

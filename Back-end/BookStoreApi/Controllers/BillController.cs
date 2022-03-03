@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿ using Microsoft.AspNetCore.Mvc;
 using BookStoreApi.Services;
 using BookStoreApi.Models;
 using BookStoreApi.Interfaces;
@@ -35,25 +35,28 @@ namespace BookStoreApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateBill([FromBody] BillDTO newBillDTO)
         {
-            var error = false;
+            var error = false;   
             int sumBill = 0;
             var i = -1;
             //Validate
             foreach(var item in newBillDTO.BookId)
             {
-                i++;
-                Book findBook = await this._booksService.GetAsync(item);
-                if(findBook is null)
+                if(item != null)
                 {
-                    ModelState.AddModelError("Error", $"{item} Foreign key (BookId) does not exist");
-                    error = true;
-                    continue;
-                }
-                if(newBillDTO.Quantity[i] <= 0)
-                {
-                    ModelState.AddModelError("Error", $"Invalid product number ({findBook.BookName} - Quantity = {newBillDTO.Quantity[i]})");
-                    error = true;
-                    continue;
+                    i++;
+                    Book findBook = await this._booksService.GetAsync(item);
+                    if(findBook is null)
+                    {
+                        ModelState.AddModelError("Error", $"{item} Foreign key (BookId) does not exist");
+                        error = true;
+                        continue;
+                    }
+                    if(newBillDTO.Quantity[i] <= 0)
+                    {
+                        ModelState.AddModelError("Error", $"Invalid product number ({findBook.BookName} - Quantity = {newBillDTO.Quantity[i]})");
+                        error = true;
+                        continue;
+                    }
                 }
             }
             if (error)
@@ -68,7 +71,9 @@ namespace BookStoreApi.Controllers
                 Book findBook = await this._booksService.GetAsync(bookId);
                 BookInBill bookInbill = this._mapper.Map<BookInBill>(findBook);
                 bookInbill.Quantity = newBillDTO.Quantity[j];
-                bookInbill.Category = findBook.Category.CategoryName;
+                if(findBook?.Category?.CategoryName != null) {
+                    bookInbill.Category = findBook.Category.CategoryName;
+                }
                 findBook.Sold += newBillDTO.Quantity[j];
                 await this._booksService.UpdateAsync(findBook.ID, findBook);
                 sumBill += findBook.Price * newBillDTO.Quantity[j];
