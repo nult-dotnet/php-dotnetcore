@@ -4,7 +4,8 @@
         $data = array(
             "Name" => $_POST["Name"],
         );
-        $result = CallAPI("role","POST",$data);
+        $headers = array("Content-Type: application/json");
+        $result = CallAPI("role","POST",json_encode($data),$headers);
         if(isset($result["Error"]) || isset($result["errors"])){
             print_r($result);
         }else{

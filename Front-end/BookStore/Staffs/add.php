@@ -8,7 +8,8 @@
             "RoleId"=>$_POST["roleId"],
             "Address" => $_POST["address"]
         );
-        $result = CallAPI("user","POST",$data_array);
+        $headers = array("Content-Type: application/json");
+        $result = CallAPI("user","POST",json_encode($data),$headers);
         if(isset($result["Error"]) || isset($result["errors"])){
             print_r($result);
         }else{

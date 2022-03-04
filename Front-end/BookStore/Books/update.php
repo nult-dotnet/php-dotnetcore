@@ -11,7 +11,8 @@
             "Quantity" => $_POST["quantity"],
             "Price" => $_POST["price"]
         );
-        $result = CallAPI($request,"PUT",$data_array);
+        $header = array("Content-Type: multipart/form-data");
+        $result = CallAPI($request,"PUT",$data_array,$header);
         if(isset($result["Error"]) || isset($result["errors"])){
             print_r($result);
         }else{

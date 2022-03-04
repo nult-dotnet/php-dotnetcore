@@ -39,7 +39,42 @@ namespace BookStoreApi.Controllers
         [RequestFormLimits(MultipartBodyLengthLimit = 2147483648)]
         public async Task<IActionResult> CreateNewBook([FromForm] BookDTO bookDTO,IFormFile File)
         {
-            return Ok(File);
+            Book newBook = new Book();    
+            this._mapper.Map(bookDTO, newBook);
+            var findBook = await this._bookService.ValidateBook(newBook.ID,newBook.BookName);
+            if(findBook != null)    
+            {
+                ModelState.AddModelError("Error", "Name is exits");
+                return BadRequest(ModelState);
+            }
+            Category findCategory = await this._categoryService.GetCategoryById(newBook.CategoryId);
+            if(findCategory is null)
+            {
+                ModelState.AddModelError("Error", "Foreign key (CategoryId) does not exist");
+                return BadRequest(ModelState);
+            }
+            //Upload image
+                //var formCollection = await Request?.ReadFormAsync();
+                //var image = formCollection.Files.FirstOrDefault();
+                var folderName = Path.Combine("wwwroot", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                if (File.Length <= 0)
+                {
+                    return BadRequest();
+                }
+                var fileName = Path.GetRandomFileName();
+                var fullPath = Path.Combine(pathToSave, fileName);
+                using (var stream = System.IO.File.Create(fullPath))
+                {
+                    await File.CopyToAsync(stream);
+                }
+            findCategory.Quantity += 1;
+            await this._categoryService.UpdateCategory(findCategory.Id, findCategory);
+            CategoryShow category = this._mapper.Map<CategoryShow>(findCategory);
+            newBook.Category = category;
+            newBook.ImagePath = fileName;
+            await this._bookService.CreateAsync(newBook);
+            return CreatedAtAction(nameof(GetItemBook), new { id = newBook.ID }, newBook);
         }
         [HttpGet("image/{dbPath}")]
         public IActionResult SeePicture(string dbPath)
