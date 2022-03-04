@@ -39,42 +39,7 @@ namespace BookStoreApi.Controllers
         [RequestFormLimits(MultipartBodyLengthLimit = 2147483648)]
         public async Task<IActionResult> CreateNewBook([FromForm] BookDTO bookDTO,IFormFile File)
         {
-            Book newBook = new Book();    
-            this._mapper.Map(bookDTO, newBook);
-            var findBook = await this._bookService.ValidateBook(newBook.ID,newBook.BookName);
-            if(findBook != null)    
-            {
-                ModelState.AddModelError("Error", "Name is exits");
-                return BadRequest(ModelState);
-            }
-            Category findCategory = await this._categoryService.GetCategoryById(newBook.CategoryId);
-            if(findCategory is null)
-            {
-                ModelState.AddModelError("Error", "Foreign key (CategoryId) does not exist");
-                return BadRequest(ModelState);
-            }
-            //Upload image
-                var formCollection = await Request.ReadFormAsync();
-                var image = formCollection.Files.First();
-                var folderName = Path.Combine("wwwroot", "Images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-                if (image.Length <= 0)
-                {
-                    return BadRequest();
-                }
-                var fileName = Path.GetRandomFileName();
-                var fullPath = Path.Combine(pathToSave, fileName);
-                using (var stream = System.IO.File.Create(fullPath))
-                {
-                    await image.CopyToAsync(stream);
-                }
-            findCategory.Quantity += 1;
-            await this._categoryService.UpdateCategory(findCategory.Id, findCategory);
-            CategoryShow category = this._mapper.Map<CategoryShow>(findCategory);
-            newBook.Category = category;
-            newBook.ImagePath = fileName;
-            await this._bookService.CreateAsync(newBook);
-            return CreatedAtAction(nameof(GetItemBook), new { id = newBook.ID }, newBook);
+            return Ok(File);
         }
         [HttpGet("image/{dbPath}")]
         public IActionResult SeePicture(string dbPath)
@@ -162,12 +127,15 @@ namespace BookStoreApi.Controllers
                 category.Quantity -= 1;
                 await this._categoryService.UpdateCategory(category.Id, category);
             }
-            var folderName = Path.Combine("wwwroot", "Images");
-            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-            var pathToFile = Path.Combine(pathToSave, book.ImagePath).Replace("/", "\\");
-            await this._bookService.DeleteAsync(id);
-            System.IO.File.Delete(pathToFile);
-            return StatusCode(200,"Delete success");
+            if(book.ImagePath != null)
+            {
+                var folderName = Path.Combine("wwwroot", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                var pathToFile = Path.Combine(pathToSave, book.ImagePath).Replace("/", "\\");
+                await this._bookService.DeleteAsync(id);
+                System.IO.File.Delete(pathToFile);
+            }
+            return NoContent();
         }
         [HttpPatch("{id:length(24)}")]
         public async Task<IActionResult> UpdatePatch(string id,[FromBody] JsonPatchDocument<BookDTO> updateBook)
@@ -213,4 +181,4 @@ namespace BookStoreApi.Controllers
             return CreatedAtAction(nameof(GetItemBook), new { id = findBook.ID }, findBook);
         }
     }
-}
+}   

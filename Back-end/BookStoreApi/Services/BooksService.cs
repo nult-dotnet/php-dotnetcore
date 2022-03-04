@@ -24,4 +24,4 @@ namespace BookStoreApi.Services
         public async Task<List<Book>> ListBookByCategoryId(string id) => await this._bookCollection.Find(x => x.CategoryId == id).ToListAsync();
         public async Task DeleteListCategory(string id) => await this._bookCollection.DeleteManyAsync(x => x.CategoryId == id);
     }
-} 
+}
