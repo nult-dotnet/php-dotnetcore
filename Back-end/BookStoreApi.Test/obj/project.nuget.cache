@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "D7AD1Xdlf2XFtYol6qiD0tJYn3p34QN0xMxrVdgx0SRzrL0zmdvPnjJt2ZbmZ5m+vvW1VoOVsPa/1KWyxA50Ag==",
+  "dgSpecHash": "PW+GpcLhQRO8HiQi1pfSS1rN1YJoNt+zo8PvUdTbV0//cWDmoJmBYE85qCEWkLil1e8M/ona9fNL9OOAZ4FSQA==",
   "success": true,
   "projectFilePath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj",
   "expectedPackageFiles": [
@@ -125,6 +125,7 @@
     "C:\\Users\\Asus\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\unity\\5.11.10\\unity.5.11.10.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\xunit\\2.4.1\\xunit.2.4.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\xunit.analyzers\\0.10.0\\xunit.analyzers.0.10.0.nupkg.sha512",

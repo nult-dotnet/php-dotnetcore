@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ADpcN6iCNEtlnh3hBovsstQRlwNi3B1IIGcYY8RPNmVJ2684HV2rm40XEIaXXF8yARrToo77kpsRe2U+9z0WZA==",
+  "dgSpecHash": "F/HGxZQppTGQ8dC7+TWVPWA0H30OosBZddoK5hwNATaKOV1wObuAntZf+WWbUFWv16Eg277WY/Lwpb6C3GOPuQ==",
   "success": true,
   "projectFilePath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
   "expectedPackageFiles": [
@@ -75,7 +75,8 @@
     "C:\\Users\\Asus\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\system.text.json\\4.6.0\\system.text.json.4.6.0.nupkg.sha512",
-    "C:\\Users\\Asus\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.1\\system.threading.tasks.extensions.4.5.1.nupkg.sha512"
+    "C:\\Users\\Asus\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.1\\system.threading.tasks.extensions.4.5.1.nupkg.sha512",
+    "C:\\Users\\Asus\\.nuget\\packages\\unity\\5.11.10\\unity.5.11.10.nupkg.sha512"
   ],
   "logs": []
 }
