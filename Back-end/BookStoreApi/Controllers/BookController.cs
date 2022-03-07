@@ -4,6 +4,8 @@ using BookStoreApi.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using BookStoreApi.Interfaces;
+using System.Net.Http.Headers;
+
 namespace BookStoreApi.Controllers
 {
     [ApiController]
@@ -13,6 +15,29 @@ namespace BookStoreApi.Controllers
         private readonly IBookService _bookService;
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
+        private static void MergeChunks(string chunk1, string chunk2)
+        {
+            FileStream fs1 = null;
+            FileStream fs2 = null;
+            try
+            {
+                fs1 = System.IO.File.Open(chunk1, FileMode.Append);
+                fs2 = System.IO.File.Open(chunk2, FileMode.Open);
+                byte[] fs2Content = new byte[fs2.Length];
+                fs2.Read(fs2Content, 0, (int)fs2.Length);
+                fs1.Write(fs2Content, 0, (int)fs2.Length);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message + " : " + ex.StackTrace);
+            }
+            finally
+            {
+                if (fs1 != null) fs1.Close();
+                if (fs2 != null) fs2.Close();
+                System.IO.File.Delete(chunk2);
+            }
+        }
         public BookController(IBookService booksService,ICategoryService categoryService,IMapper mapper)
         {
             _bookService = booksService;
@@ -36,7 +61,6 @@ namespace BookStoreApi.Controllers
             return Ok(book);
         }
         [HttpPost]
-        [RequestFormLimits(MultipartBodyLengthLimit = 2147483648)]
         public async Task<IActionResult> CreateNewBook([FromForm] BookDTO bookDTO,IFormFile File)
         {
             Book newBook = new Book();    
@@ -215,5 +239,37 @@ namespace BookStoreApi.Controllers
             await this._bookService.UpdateAsync(findBook.ID, findBook);
             return CreatedAtAction(nameof(GetItemBook), new { id = findBook.ID }, findBook);
         }
+        [HttpPost("upload")]
+        [RequestFormLimits(MultipartBodyLengthLimit = 1073741824)]
+        public async Task<IActionResult> UploadFile(IFormFile file)
+        {
+            var pathFolder = Path.Combine("wwwroot", "Temp");
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), pathFolder);
+            var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var pathFull = Path.Combine(pathToSave, fileName);
+            if(file.Length <= 0)
+            {
+                return BadRequest();
+            }
+            using(var stream = System.IO.File.Create(pathFull))
+            {
+                await file.CopyToAsync(stream);
+            }
+            return Ok(file);
+        }
+        [HttpPost("filemerge/{fileName}")]
+        
+        public async Task<IActionResult> FileMerge(string fileName)
+        {
+            string tempPath = Path.Combine("wwwroot","Temp");
+            string pathFolder = Path.Combine("wwwroot", "Images");
+            string newPath = Path.Combine(pathFolder, fileName);
+            string[] filePaths = Directory.GetFiles(tempPath,fileName+"*");
+            foreach (string filePath in filePaths)
+            {
+                MergeChunks(newPath, filePath);
+            }
+            return Ok(fileName);
+        }
     }
-}   
+}

@@ -17,7 +17,7 @@ builder.Services.AddHttpLogging(logging =>
     logging.RequestBodyLogLimit = 4096;
     logging.ResponseBodyLogLimit = 4096;
 
-});
+}); 
 // Add services to the container.
 //Config log file
 var logger = new LoggerConfiguration()
@@ -31,12 +31,6 @@ builder.Logging.AddSerilog(logger);
 builder.Logging.AddConsole();
 
 builder.Services.Configure<BookStoreDatabaseSetting>(builder.Configuration.GetSection("BookStoreDatabase"));
-builder.Services.AddSingleton<BooksService>();
-builder.Services.AddSingleton<UsersService>();
-builder.Services.AddSingleton<RolesService>();
-builder.Services.AddSingleton<CategoryService>();
-builder.Services.AddSingleton<BillsService>();
-builder.Services.AddSingleton<LogsService>();
 
 //Dependency config
 builder.Services.AddScoped<IRoleService,RolesService>();

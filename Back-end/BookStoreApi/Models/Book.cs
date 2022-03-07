@@ -51,4 +51,11 @@ namespace BookStoreApi.Models
         [Required]
         public string Author { get; set; }
     }
+    public class ChunkFile
+    {
+        [Required]
+        public string Id { get; set; }
+        [Required]
+        public string FileName { get; set; }
+    }
 }

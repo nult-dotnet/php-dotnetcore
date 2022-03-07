@@ -2,7 +2,6 @@
     include __DIR__ . '/../CallAPI.php';
     if(isset($_POST["update"])){
         $request = "book/detail/".$_POST["id"];
-       
         $data_array = array(
             "Id" => $_POST["id"],
             "Name" => $_POST["name"],
@@ -11,7 +10,10 @@
             "Quantity" => $_POST["quantity"],
             "Price" => $_POST["price"]
         );
-        $header = array("Content-Type: multipart/form-data");
+        if(!empty($_FILES["file"]["name"])){
+            $data_array["File"] = curl_file_create($_FILES["file"]["tmp_name"],$_FILES["file"]["type"],$_FILES["file"]["name"]);
+        }
+        $header = array("Content-Type" => "application/json");
         $result = CallAPI($request,"PUT",$data_array,$header);
         if(isset($result["Error"]) || isset($result["errors"])){
             print_r($result);

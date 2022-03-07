@@ -19,10 +19,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="web.config" />
+    <Folder Include="wwwroot\Temp\" />
   </ItemGroup>
 
 </Project>
