@@ -227,3 +227,7 @@ D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\BookStoreA
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\web.config
+D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\System.Web.Http.dll
+D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\Unity.Abstractions.dll
+D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\Unity.Container.dll

@@ -1,7 +1,7 @@
 <?php
     include_once __DIR__ . '/../../php-dotnetcore/Front-end/BookStore/CallAPI.php';
     ini_set('memory_limit', '1024M');
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 15) {
         $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
@@ -15,35 +15,42 @@
             $offset = 0;
             $file_size = $_FILES["file"]["size"];
             $file_path = $_FILES["file"]["tmp_name"];
-            $chunk_size = ($file_size > 536870912) ? 536870912 : $file_size; //500M;
+            $file_name = $_FILES["file"]["name"];
+            $chunk_size = ($file_size > 104857600) ? 104857600 : $file_size; //100M;
             $header = array("Content-Type: multipart/form-data");
-            $request = "book/upload";
-            $i=0;
-            $data = [];
+            $url = "upload";
+            $totalChunk = (($file_size - ($file_size % $chunk_size)) / $chunk_size);
+            if(($file_size % $chunk_size) != 0){
+                $totalChunk++;
+            }
             $ext = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
-            $filename = generateRandomString();
-            while($offset < $file_size){
+            $fileId = generateRandomString();
+            for($i=1;$i<=$totalChunk;$i++){
+                $data = [];
                 if($offset + $chunk_size >= $file_size){
                     $sz = $file_size - $offset;
                 }else{
                     $sz = $chunk_size;
                 }
-                $file = $filename.'.'.$ext.$i;
-                $chunkFile = file_get_contents($file_path,false,null,$offset,$sz);
-                file_put_contents($file,$chunkFile);
+                $file = "chunk".$i.".blob";
+                $chunkFile = file_put_contents($file,file_get_contents($file_path,false,null,$offset,$sz));//Blob file
                 $offset += $chunk_size;
-                $i++;
-                $data["file"] = curl_file_create("D:/xampp/htdocs/php-dotnetcore/Front-end/".$file,mime_content_type($file),$file);
-                $result = CallAPI($request,"POST",$data,$header);
+                $data = array(
+                    $file => curl_file_create("D:/xampp/htdocs/php-dotnetcore/Front-end/".$file,mime_content_type($file),$file),
+                    "chunkNumber" => $i,
+                    "totalChunks" => $totalChunk,
+                    "fileName" => $file_name,
+                    "fileId" => $fileId
+                );
+                $result = CallAPI($url,"POST",$data,$header);
                 unlink($file);
-                // echo json_encode($result);
-            }
-            $request_merge = "book/filemerge/".$filename.'.'.$ext;
-            $mergeFile = CallAPI($request_merge,"POST",$filename.'.'.$ext);
-            if(isset($mergeFile["Error"]) || isset($mergeFile["errors"])){
-                print_r($mergeFile);
-            }else{
-                echo 'Upload success';
+                if(isset($result["Error"]) || isset($result["errors"])){
+                    print_r($result);
+                }else{
+                    if($result["complete"]==true){
+                        echo 'Upload complete';
+                    }
+                }
             }
         }  
     }
