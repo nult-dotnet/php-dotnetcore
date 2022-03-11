@@ -9,7 +9,7 @@ namespace BookStoreApi.Controllers
     {
         public static string RenameChunk(IFormFile file, string fileID, int chunkNumber, string fileName)
         {
-            string chunkName = $"{fileName}_{fileID}_{chunkNumber}.blob";
+            string chunkName = $"{fileName}_{fileID}_{chunkNumber}";
             string pathFolderTemp = Path.Combine("wwwroot", "Temp");
             string pathTemp = Path.Combine(Directory.GetCurrentDirectory(), pathFolderTemp, chunkName);
             return pathTemp;
@@ -21,8 +21,8 @@ namespace BookStoreApi.Controllers
             int findTotal = 0;
             for(var i = 1; i<=totalChunks; i++)
             {
-                string findChunk = $"{fileName}_{fileID}_{i}.blob";
-                string result = Directory.GetFiles(pathTemp, findChunk+"*").FirstOrDefault();
+                string findChunk = $"{fileName}_{fileID}_{i}";
+                string result = Directory.GetFiles(pathTemp, findChunk).FirstOrDefault();
                 if(result != null)
                 {
                     findTotal++;
@@ -60,11 +60,11 @@ namespace BookStoreApi.Controllers
         public static string AssembleFile(string fileName,string fileID,int totalChunks)
         {
             string pathTemp = Path.Combine("wwwroot", "Temp");
-            string pathFile = Path.Combine("wwwroot", "Files"); 
-            string name = Path.GetRandomFileName();
+            string pathFile = Path.Combine("wwwroot", "Files");
+            string name = $"{DateTime.Now.ToString("HH-mm-ss-dd-MM-yyyy")}-{fileName}";
             for (var i = 1; i <= totalChunks; i++)
             {
-                string findChunk = $"{fileName}_{fileID}_{i}.blob";
+                string findChunk = $"{fileName}_{fileID}_{i}";
                 string resultChunk = Directory.GetFiles(pathTemp, findChunk + "*").FirstOrDefault();
                 MergeChunks(Path.Combine(pathFile,name), resultChunk);
             }
@@ -83,7 +83,7 @@ namespace BookStoreApi.Controllers
                 IFormFile file = request.Files.FirstOrDefault();
 
                 //Receive Data
-                int chunkNumber = int.Parse(request.FirstOrDefault(x=>x.Key== "chunkNumber").Value);
+                int chunkNumber = int.Parse(request.FirstOrDefault(x=>x.Key == "chunkNumber").Value);
                 int totalChunks = int.Parse(request.FirstOrDefault(x => x.Key == "totalChunks").Value);
                 string fileName = request.FirstOrDefault(x => x.Key == "fileName").Value;
                 string fileId = request.FirstOrDefault(x => x.Key == "fileId").Value;
@@ -92,7 +92,7 @@ namespace BookStoreApi.Controllers
                 {
                     string pathFolder = Path.Combine("wwwroot","Files");
                     string pathSave = Path.Combine(Directory.GetCurrentDirectory(), pathFolder);
-                    string name = Path.GetRandomFileName();
+                    string name = $"{DateTime.Now.ToString("HH-mm-ss-dd-MM-yyyy")}-{fileName}";
                     using (var stream = System.IO.File.Create(Path.Combine(pathSave, name)))
                     {
                         await file.CopyToAsync(stream);

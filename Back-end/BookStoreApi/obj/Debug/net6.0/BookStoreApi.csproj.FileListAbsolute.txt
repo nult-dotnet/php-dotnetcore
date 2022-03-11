@@ -231,3 +231,5 @@ D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\System.Net
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\System.Web.Http.dll
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\Unity.Abstractions.dll
 D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\Unity.Container.dll
+D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\Autofac.dll
+D:\xampp\htdocs\php-dotnetcore\Back-end\BookStoreApi\bin\Debug\net6.0\Autofac.Extensions.DependencyInjection.dll
