@@ -32,7 +32,7 @@
                 }else{
                     $sz = $chunk_size;
                 }
-                $file = "chunk".$i.".blob";
+                $file = "chunk".$i;
                 $chunkFile = file_put_contents($file,file_get_contents($file_path,false,null,$offset,$sz));//Blob file
                 $offset += $chunk_size;
                 $data = array(
