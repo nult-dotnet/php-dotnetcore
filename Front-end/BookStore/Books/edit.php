@@ -33,11 +33,11 @@
                                 Cập nhật sản phẩm
                             </div>
                             <div class="item_navbar">
-                                <a href="">Trang chủ</a> / <a href="/../BookStore/Books/">Quản lý sách</a> / <span>Cập nhật</span>
+                                <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Books/">Quản lý sách</a> / <span>Cập nhật</span>
                             </div>
                         </div>
                         <div class="item-list_data">
-                            <form action="update.php" method="POST">
+                            <form action="update.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for=""><b>Mã sách</b></label>
                                     <input type="text" readonly name="id" value="<?=$dataBook["id"]?>" class="form-control">
@@ -45,6 +45,13 @@
                                 <div class="form-group">
                                     <label for="name"><b>Tên sách</b></label>
                                     <input type="text" value="<?=$dataBook["bookName"]?>" name="name"  id="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <img src="https://localhost:44313/api/book/image/<?=$dataBook["imagePath"]?>" width="200px">
+                                    </div>
+                                    <label for="file"><b>Hình ảnh</b></label>
+                                    <input type="file" name="file" id="file" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="price"><b>Giá bán niêm yết</b></label>

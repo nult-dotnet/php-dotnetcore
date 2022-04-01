@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj": {}
+    "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj": {}
   },
   "projects": {
-    "D:\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj": {
+    "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj",
+        "projectUniqueName": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj",
         "projectName": "BookStoreApi.Test",
-        "projectPath": "D:\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj",
+        "projectPath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\BookStoreApi.Test.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\obj\\",
+        "outputPath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi.Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj": {
-                "projectPath": "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj"
+              "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj": {
+                "projectPath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj"
               }
             }
           }
@@ -92,14 +92,14 @@
         }
       }
     },
-    "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj": {
+    "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
+        "projectUniqueName": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
         "projectName": "BookStoreApi",
-        "projectPath": "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
+        "projectPath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\BookStoreApi.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\php-dotnetcore\\Back-end\\BookStoreApi\\obj\\",
+        "outputPath": "D:\\xampp\\htdocs\\php-dotnetcore\\Back-end\\BookStoreApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -132,6 +132,22 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            },
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
               "version": "[6.0.2, )"
@@ -139,6 +155,14 @@
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[6.0.2, )"
+            },
+            "Microsoft.AspNetCore.Server.Kestrel": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
@@ -151,6 +175,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "Unity": {
+              "target": "Package",
+              "version": "[5.11.10, )"
             }
           },
           "imports": [

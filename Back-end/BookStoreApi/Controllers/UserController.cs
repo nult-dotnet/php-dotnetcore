@@ -3,18 +3,18 @@ using BookStoreApi.Models;
 using BookStoreApi.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-
+using BookStoreApi.Interfaces;
 namespace BookStoreApi.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
     public class UserController : ControllerBase
     {
-        private readonly UsersService _userService;
-        private readonly RolesService _roleService;
+        private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
         private readonly IMapper _mapper;
 
-        public UserController(UsersService userService,RolesService roleService,IMapper mapper)
+        public UserController(IUserService userService,IRoleService roleService,IMapper mapper)
         {
             _userService = userService;
             _roleService = roleService;
@@ -22,7 +22,6 @@ namespace BookStoreApi.Controllers
         }
         [HttpGet]
         public async Task<List<User>> GetUser() => await this._userService.GetUserAsync();
-
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<User>> GetUserById(string id){
             var user = await this._userService.GetUserAsync(id);
@@ -84,7 +83,7 @@ namespace BookStoreApi.Controllers
                 await this._roleService.UpdateRoleById(findRole.Id, findRole);
             }
             await this._userService.DeleteUserAsync(id);
-            return StatusCode(200, "Delete success");
+            return NoContent();
 
         }
         [HttpPut("{id}")]
@@ -93,7 +92,7 @@ namespace BookStoreApi.Controllers
             User findUser = await this._userService.GetUserAsync(id);
             if(findUser is null)
             {
-                ModelState.AddModelError("Error", "Id not found");
+                ModelState.AddModelError("Error", "User not found");
                 return BadRequest(ModelState);
             }
             bool error = false;
@@ -135,16 +134,18 @@ namespace BookStoreApi.Controllers
         public async Task<IActionResult> UpdatePatch(string id,[FromBody] JsonPatchDocument<UpdateUser> updateUser)
         {
             User findUser = await this._userService.GetUserAsync(id);
-            var roleIdOld = findUser.RoleId;
             if(findUser is null)
             {
                 ModelState.AddModelError("Error", "User not found");
                 return BadRequest(ModelState);
             }
+            var roleIdOld = findUser.RoleId;
             bool error = false;
+
             UpdateUser userDTO = this._mapper.Map<UpdateUser>(findUser);
             updateUser.ApplyTo(userDTO);
             this._mapper.Map(userDTO, findUser);
+
             Role findRole = await this._roleService.GetRoleById(findUser.RoleId);
             if(findRole is null)
             {

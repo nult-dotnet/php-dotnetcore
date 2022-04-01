@@ -34,7 +34,7 @@
                                 Cập nhật thông tin nhân viên
                             </div>
                             <div class="item_navbar">
-                                <a href="">Trang chủ</a> / <a href="/../BookStore/Staffs/">Quản lý nhân viên</a> / <span>Cập nhật thông tin</span>
+                                <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Staffs/">Quản lý nhân viên</a> / <span>Cập nhật thông tin</span>
                             </div>
                         </div>
                         <div class="item-list_data">

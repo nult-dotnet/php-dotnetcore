@@ -5,7 +5,8 @@
             "Name" => $_POST["Name"]
         );
         $request = "category/".$_POST["Id"];
-        $result = CallAPI($request,"PUT",$data);
+        $headers = array("Content-Type: application/json");
+        $result = CallAPI($request,"PUT",json_encode($data),$headers);
         if(isset($result["Error"]) || isset($result["errors"])){
             print_r($result);
         }else{

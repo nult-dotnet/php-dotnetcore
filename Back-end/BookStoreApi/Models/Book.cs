@@ -13,9 +13,10 @@ namespace BookStoreApi.Models
         public string ID { get; set; }
         [BsonElement("Name")]
         public string BookName { get; set; }
+        public string ImagePath { get; set; }
         public int Price { get; set; }
         public string Currency { get; set; } = "VND";
-       public int Quantity { get; set; }
+        public int Quantity { get; set; }
         public int Sold { get; set; }
         [ForeignKey("CategoryFK")]
         public string CategoryId { get; set; }
@@ -34,7 +35,6 @@ namespace BookStoreApi.Models
     }
     public class BookDTO
     {
-        public string ID { get; set; }
         private int quantity;
         [Required]
         public string Name { get; set; }
@@ -50,5 +50,12 @@ namespace BookStoreApi.Models
         public string CategoryId { get; set; }
         [Required]
         public string Author { get; set; }
+    }
+    public class ChunkFile
+    {
+        [Required]
+        public string Id { get; set; }
+        [Required]
+        public string FileName { get; set; }
     }
 }

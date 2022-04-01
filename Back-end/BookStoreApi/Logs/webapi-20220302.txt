@@ -1,0 +1,10 @@
+[2022-03-02 10:31:06.736 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 10:36:57.646 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 10:37:59.253 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 10:38:34.329 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 11:23:54.729 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 13:51:27.212 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 14:21:22.068 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 14:22:04.989 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 14:23:36.186 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
+[2022-03-02 16:05:39.644 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category

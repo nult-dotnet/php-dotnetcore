@@ -25,11 +25,11 @@
                             Danh mục quản lý sách
                         </div>
                         <div class="item_navbar">
-                            <a href="">Trang chủ</a> / <a href="/../BookStore/Books/">Quản lý sách</a>
+                            <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Books/">Quản lý sách</a>
                         </div>
                     </div>
                     <div class="insert_data text-right">
-                        <a href="/../BookStore/Books/create.php" class="btn btn-primary">Thêm mới</a>
+                        <a href="/../../php-dotnetcore/Front-end/BookStore/Books/create.php" class="btn btn-primary">Thêm mới</a>
                     </div>
                     <div class="item-list_data">
                         <?php 
@@ -39,7 +39,8 @@
                         <table class="table">
                             <thead class="bg-dark"> 
                                 <th class="text-center" width="10%">STT</th>
-                                <th width="35%">Tên sách</th>
+                                <th width="10%">Hình ảnh</th>
+                                <th>Tên sách</th>
                                 <th class="">Giá bán niêm yết</th>
                                 <th>Phân loại sách</th>
                                 <th class="text-center">Trong kho</th>
@@ -52,13 +53,15 @@
                                     <?php $i++;?>
                                     <tr>
                                         <td class="text-center"><b><?=$i?></b></td>
+                                        <td><img src="https://localhost:44313/api/book/image/<?=$value["imagePath"]?>" width="100%"></td>
                                         <td><b><?=$value["bookName"]?></b></td>
+                                       
                                         <td class=""><b class="text-success"><?=number_format($value["price"],0,',','.')?> VND</b></td>
                                         <td><?=$category = !empty($value["category"]["categoryName"]) ? $value["category"]["categoryName"]:"";?></td>
                                         <td class="text-center quantity"><b class="text-danger"><?=$value["quantity"] - $value["sold"]?></b> <i data-id="<?=$value["id"]?>" class="text-danger edit_quantity fas fa-pen-square"></i></td>
                                         <td class="text-center"><?=$value["sold"]?></td>
                                         <td class="text-right" style="display: flex;column-gap: 5px;justify-content:flex-end">
-                                            <a href="/../BookStore/Books/edit.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a href="/../../php-dotnetcore/Front-end/BookStore/Books/edit.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
                                             <form action="delete.php" method="POST">
                                                 <input type="hidden" name="Id" id="id" readonly value="<?=$value['id']?>"/>
                                                 <button class="btn btn-danger btn-sm" type="submit" name="Delete"><i class="fas fa-trash-alt"></i></button>

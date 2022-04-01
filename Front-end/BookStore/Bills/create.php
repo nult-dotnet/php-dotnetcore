@@ -25,7 +25,7 @@
                                 Tạo hóa đơn bán hàng
                             </div>
                             <div class="item_navbar">
-                                <a href="">Trang chủ</a> / <a href="/../BookStore/Bills/">Quản lý hóa đơn</a> / <span>Thêm mới</span>
+                                <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Bills/">Quản lý hóa đơn</a> / <span>Thêm mới</span>
                             </div>
                         </div>
                         <div style="display: flex;margin-top: 40px;column-gap: 25px;">

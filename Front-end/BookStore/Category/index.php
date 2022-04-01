@@ -25,7 +25,7 @@
                             Danh mục phân loại sách
                         </div>
                         <div class="item_navbar">
-                            <a href="">Trang chủ</a> / <a href="/../BookStore/Category/">Phân loại sách</a>
+                            <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Category/">Phân loại sách</a>
                         </div>
                     </div>
                     <div class="insert_data text-right">
@@ -78,7 +78,7 @@
                                         <td class="text-center"><?=$value["quantity"]?> </td>
                                         <td class="text-center"><?=date("H:i d-m-Y",strtotime($value["timeCreate"]))?></td>
                                         <td class="text-right" style="display: flex;column-gap: 5px;justify-content:flex-end">
-                                            <a href="/../BookStore/Category/edit.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a href="/../../php-dotnetcore/Front-end/BookStore/Category/edit.php?id=<?=$value["id"]?>" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
                                             <form action="delete.php" method="POST">
                                                 <input type="hidden" name="Id" id="id" readonly value="<?=$value['id']?>"/>
                                                 <button class="btn btn-danger btn-sm" type="submit" name="Delete"><i class="fas fa-trash-alt"></i></button>

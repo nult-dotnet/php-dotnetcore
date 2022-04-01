@@ -2,9 +2,10 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using BookStoreApi.Settings;
+using BookStoreApi.Interfaces;
 namespace BookStoreApi.Services
 {
-    public class BillsService
+    public class BillsService : IBillService
     {
         private readonly IMongoCollection<Bill> _billCollection;
         public BillsService(IOptions<BookStoreDatabaseSetting> bookStoreDatabaseSetting)

@@ -1,26 +1,45 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using BookStoreApi.Autofac;
+using BookStoreApi.Interfaces;
 using BookStoreApi.Services;
 using BookStoreApi.Settings;
-using Microsoft.Net.Http.Headers;
 using Serilog;
-using System.Reflection;
+using Serilog.Filters;
 
-var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
-//log file
+var builder = WebApplication.CreateBuilder(args); 
+
+//Config log file
 var logger = new LoggerConfiguration()
   .ReadFrom.Configuration(builder.Configuration)
+  .Filter.ByExcluding(Matching.FromSource("Microsoft"))
+  .Filter.ByExcluding(Matching.FromSource("System"))
+  .Enrich.FromLogContext()
   .CreateLogger();
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 builder.Logging.AddConsole();
 
+//Autofac Custom dependency injection (DI) container
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacModule()));
+
+//Config bookStotedatabase
 builder.Services.Configure<BookStoreDatabaseSetting>(builder.Configuration.GetSection("BookStoreDatabase"));
-builder.Services.AddSingleton<BooksService>();
-builder.Services.AddSingleton<UsersService>();
-builder.Services.AddSingleton<RolesService>();
-builder.Services.AddSingleton<CategoryService>();
-builder.Services.AddSingleton<BillsService>();
+
+//Dependency config
+
+/*builder.Services.AddScoped<IRoleService,RolesService>();
+builder.Services.AddScoped<ICategoryService,CategoryService>();
+builder.Services.AddScoped<IBookService,BooksService>();
+builder.Services.AddScoped<IUserService, UsersService>();
+builder.Services.AddScoped<IBillService,BillsService>();
+builder.Services.AddScoped<ILogService,LogsService>();
+*/
+
+//AddController
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -28,18 +47,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddResponseCaching();
 //Add JsonPatch
 builder.Services.AddControllers().AddNewtonsoftJson();
-//Config AutoMapper 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: "MyPolicy",
-                builder =>
-                {
-                    builder.WithOrigins("https://localhost:44313/")
-                            .WithMethods("PUT","DELETE", "GET","POST");
-                });
-});
+//Add AutoMapper 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -55,7 +65,7 @@ app.UseCors();
 app.UseResponseCaching();
 
 app.UseAuthorization();
-
+app.UseStaticFiles();
 app.MapControllers();
-
+app.UseHttpLogging();
 app.Run();

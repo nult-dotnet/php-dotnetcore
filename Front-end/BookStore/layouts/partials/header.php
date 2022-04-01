@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/../BookStore/layouts/css/style_header.css">
+<link rel="stylesheet" href="/../../php-dotnetcore/Front-end/BookStore/layouts/css/style_header.css">
 <div class="header_container">
     <!-- <ul class="header_item">
         <li><label class="header_item--child" id="hide_slidebar" for="check_hide_slidebar"><i style="font-size: 20px;" class="fas fa-bars"></i></label></li>

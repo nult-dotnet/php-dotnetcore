@@ -33,7 +33,7 @@
                                 Cập nhật loại sách
                             </div>
                             <div class="item_navbar">
-                                <a href="">Trang chủ</a> / <a href="/../BookStore/Category/">Phân loại sách</a> / <span>Cập nhật</span>
+                                <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Category/">Phân loại sách</a> / <span>Cập nhật</span>
                             </div>
                         </div>
                         <div class="item-list_data">

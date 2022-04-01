@@ -25,7 +25,7 @@
                                 Thêm mới nhân viên
                             </div>
                             <div class="item_navbar">
-                                <a href="">Trang chủ</a> / <a href="/../BookStore/Staffs/">Quản lý nhân viên</a> / <span>Thêm mới</span>
+                                <a href="">Trang chủ</a> / <a href="/../../php-dotnetcore/Front-end/BookStore/Staffs/">Quản lý nhân viên</a> / <span>Thêm mới</span>
                             </div>
                         </div>
                         <div class="item-list_data">
