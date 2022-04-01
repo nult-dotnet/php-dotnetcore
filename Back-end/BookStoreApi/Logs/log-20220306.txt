@@ -1,4 +1,0 @@
-[2022-03-06 13:17:56.849 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
-[2022-03-06 13:18:10.912 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
-[2022-03-06 15:55:43.527 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category
-[2022-03-06 20:35:12.344 +07:00  INF]  GET (ListItem) - Run api: https://localhost:44313/api/category

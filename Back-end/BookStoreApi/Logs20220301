@@ -1,2 +1,0 @@
-[2022-03-01 11:04:37.758 +07:00  INF]  GET (ItemById) - Run api: https://localhost:44313/api/category/6215ba21e51020cb0a7e1e60
-[2022-03-01 11:04:37.936 +07:00  WRN]  ERROR - Category not found
