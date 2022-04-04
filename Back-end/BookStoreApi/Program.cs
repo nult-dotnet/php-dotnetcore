@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using BookStoreApi.Autofac;
 using BookStoreApi.DBContext;
+using LibraryFactoryDBProvider;
 using Serilog;
 using Serilog.Filters;
 var builder = WebApplication.CreateBuilder(args); 
@@ -51,6 +52,12 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //Add SignalR
 builder.Services.AddSignalR();
 var app = builder.Build();
+
+//Auto create database
+if (!GetStringAppsetting.DatabaseDefault().Equals("MongoDB")){
+    var AutocreateDB = new AutoCreateDatabase();
+    AutocreateDB.CreateDB(app);
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

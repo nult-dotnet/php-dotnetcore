@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServerMigrations", "SqlS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgreSQLMigrations", "PostgreSQLMigrations\PostgreSQLMigrations.csproj", "{C6474ABA-AFF3-48F0-B223-BB798E02BDC6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryFactoryDBProvider", "LibraryFactoryDBProvider\LibraryFactoryDBProvider.csproj", "{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStoreApi.DataAccessAbstract", "BookStoreApi.DataAccessAbstract\BookStoreApi.DataAccessAbstract\BookStoreApi.DataAccessAbstract.csproj", "{540A59C6-6D7B-4588-A9BA-C8E7426B8200}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryAbstractDBProvider", "LibraryAbstractDBProvider\LibraryAbstractDBProvider\LibraryAbstractDBProvider.csproj", "{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStoreApi.DataAccessFactory", "BookStoreApi.DataAccessFactory\BookStoreApi.DataAccessFactory.csproj", "{FC4AB450-650D-4576-82C5-43E1745BB103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +37,14 @@ Global
 		{C6474ABA-AFF3-48F0-B223-BB798E02BDC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6474ABA-AFF3-48F0-B223-BB798E02BDC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6474ABA-AFF3-48F0-B223-BB798E02BDC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{540A59C6-6D7B-4588-A9BA-C8E7426B8200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540A59C6-6D7B-4588-A9BA-C8E7426B8200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540A59C6-6D7B-4588-A9BA-C8E7426B8200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540A59C6-6D7B-4588-A9BA-C8E7426B8200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC4AB450-650D-4576-82C5-43E1745BB103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4AB450-650D-4576-82C5-43E1745BB103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4AB450-650D-4576-82C5-43E1745BB103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4AB450-650D-4576-82C5-43E1745BB103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

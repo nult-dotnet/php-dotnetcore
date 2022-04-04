@@ -12,7 +12,7 @@ namespace LibraryAbstractDBProvider.DBProvider
     {
         public override void ConnectedDatabase(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(ConnectionString(), x => x.MigrationsAssembly("PostgreSQLMigrations"));
+            optionsBuilder.UseNpgsql(ConnectionString());
         }
 
         public override string ConnectionString()
