@@ -1,7 +1,8 @@
 <?php
     include_once __DIR__ . '/../CallAPI.php';
     $request = "category/".$_GET["id"];
-    $data = CallAPI($request,"GET","");
+    $d = CallAPI($request,"GET","");
+    $data = $d["object"]
 ?>
 <?php if(isset($data["Error"])):?>
 <?php print_r($data);?>

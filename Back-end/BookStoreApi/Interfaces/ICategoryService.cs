@@ -1,13 +1,13 @@
-﻿using BookStoreApi.Models;
+﻿using BookStoreApi.ApiActionResult;
+using BookStoreApi.Models;
 namespace BookStoreApi.Interfaces
 {
     public interface ICategoryService
     {
-        Task<IEnumerable<Category>> GetCategory();
-        Task<Category> GetCategoryById(string id);
-        Task CreateCategory(Category newCategory);
-        Task UpdateCategory(string id, Category updateCategory);
-        Task DeleteCategory(string id);
-        Task<IEnumerable<Category>> ValidateCategory(string id, string name);
+        Task<IEnumerable<Category>> GetAllCategory();
+        Task<ApiResult<Category>> GetCategoryById(string id);
+        Task<ApiResult<Category>> AddCategory(CategoryDTO categoryDTO);
+        Task<ApiResult<Category>> Delete(string id);
+        Task<ApiResult<Category>> UpdateCategory(string id,CategoryDTO categoryDTO);
     }
 }

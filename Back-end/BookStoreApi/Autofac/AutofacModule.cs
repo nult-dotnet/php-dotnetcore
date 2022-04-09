@@ -13,7 +13,6 @@ namespace BookStoreApi.Autofac
             builder.RegisterType<CategoryService>().As<ICategoryService>();
             builder.RegisterType<BooksService>().As<IBookService>();
             builder.RegisterType<BillsService>().As<IBillService>();
-            builder.RegisterType<BillDetailService>().As<IBillDetailService>();
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using BookStoreApi.Models;
+﻿using BookStoreApi.ApiActionResult;
+using BookStoreApi.Models;
 namespace BookStoreApi.Interfaces
 {
     public interface IBillService
     {
-        Task<IEnumerable<Bill>> GetBills();
-        Task<Bill?> GetBillById(string id);
-        Task CreateBill(Bill newBill);
-        Task UpdateBill(string id, Bill updateBill);
+        Task<IEnumerable<Bill>> GetAllBill();
+        Task<ApiResult<Bill>> GetBillById(string id);
+        Task<ApiResult<Bill>> AddBill(BillDTO billDTO);
     }
 }

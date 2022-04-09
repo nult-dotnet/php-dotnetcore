@@ -34,12 +34,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Images\" />
-    <Folder Include="wwwroot\Files\" />
-    <Folder Include="wwwroot\Temp\" />
+    <ProjectReference Include="..\BookStoreApi.DataAccess\BookStoreApi.DataAccess\BookStoreApi.DataAccess.csproj" />
+    <ProjectReference Include="..\PostgreSQLMigrations\PostgreSQLMigrations.csproj" />
+    <ProjectReference Include="..\SqlServerMigrations\SqlServerMigrations.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibraryAbstractDBProvider\LibraryAbstractDBProvider\LibraryAbstractDBProvider.csproj" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="wwwroot\Files\" />
+    <Folder Include="wwwroot\Temp\" />
   </ItemGroup>
 </Project>
