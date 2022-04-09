@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgreSQLMigrations", "Pos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryFactoryDBProvider", "LibraryFactoryDBProvider\LibraryFactoryDBProvider.csproj", "{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryAbstractDBProvider", "LibraryAbstractDBProvider\LibraryAbstractDBProvider\LibraryAbstractDBProvider.csproj", "{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStoreApi.DataAccess", "BookStoreApi.DataAccess\BookStoreApi.DataAccess\BookStoreApi.DataAccess.csproj", "{0107244B-1BD1-4962-9586-8735FC8CC1E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{306CB280-EFC9-4F35-B9DA-4A20CA1330EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A5DE3E7-59C3-429E-8C96-E1074A74A9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0107244B-1BD1-4962-9586-8735FC8CC1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0107244B-1BD1-4962-9586-8735FC8CC1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0107244B-1BD1-4962-9586-8735FC8CC1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0107244B-1BD1-4962-9586-8735FC8CC1E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

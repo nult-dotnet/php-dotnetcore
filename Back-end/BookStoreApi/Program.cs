@@ -1,7 +1,9 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using BookStoreApi.Autofac;
+using BookStoreApi.DataAccess.AutoCreateDB;
 using BookStoreApi.DBContext;
+using LibraryAbstractDBProvider;
 using Serilog;
 using Serilog.Filters;
 var builder = WebApplication.CreateBuilder(args); 
@@ -58,7 +60,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-
+if (!GetStringAppsetting.DatabaseDefault().Equals("MongoDB"))
+{
+    var createDB = new AutoCreateDB();
+    createDB.CreateDB(app);
+}
 app.UseCors();
 
 app.UseResponseCaching();

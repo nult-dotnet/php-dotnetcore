@@ -1,13 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<BaseOutputPath>..\BookStoreApi\bin\</BaseOutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\BookStoreApi\BookStoreApi.csproj" />
+	  <ProjectReference Include="..\BookStoreApi.DataAccess\BookStoreApi.DataAccess\BookStoreApi.DataAccess.csproj" />
 	</ItemGroup>
 </Project>
