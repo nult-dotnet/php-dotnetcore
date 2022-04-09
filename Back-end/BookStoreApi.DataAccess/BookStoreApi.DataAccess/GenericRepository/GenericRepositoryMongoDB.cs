@@ -1,4 +1,6 @@
-﻿using MongoDB.Driver;
+﻿using BookStoreApi.DBContext;
+using BookStoreApi.RepositoryPattern;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +14,9 @@ namespace LibraryAbstractDBProvider.DBContext
     {
         private readonly IMongoDBContext _dbContext;
         private IMongoCollection<TEntity> _mongoCollection;
-        public GenericRepositoryMongoDB(IMongoDBContext mongoDBContext)
+        public GenericRepositoryMongoDB(IUnitOfWork unitOfWork)
         {
-            this._dbContext = mongoDBContext;
+            this._dbContext = (MongoDBContext)unitOfWork.Context;
             this._mongoCollection = _dbContext.GetCollection<TEntity>(typeof(TEntity).Name);
         }
         public async virtual Task Delete(object id) => await this._mongoCollection.DeleteOneAsync(Builders<TEntity>.Filter.Eq("_id", id));

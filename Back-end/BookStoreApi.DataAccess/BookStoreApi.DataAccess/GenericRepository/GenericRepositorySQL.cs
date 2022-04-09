@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BookStoreApi.DBContext;
+using BookStoreApi.RepositoryPattern;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +12,11 @@ namespace LibraryAbstractDBProvider.DBContext
 {
     public class GenericRepositorySQL<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        internal DbContext context;
+        internal SQLContext context;
         internal DbSet<TEntity> dbSet;
-        public GenericRepositorySQL(DbContext context)
+        public GenericRepositorySQL(IUnitOfWork unitOfWork)
         {
-            this.context = context;
+            this.context =(SQLContext)unitOfWork.Context;
             this.dbSet = context.Set<TEntity>();
         }
         public async virtual Task<IEnumerable<TEntity>> Get(
