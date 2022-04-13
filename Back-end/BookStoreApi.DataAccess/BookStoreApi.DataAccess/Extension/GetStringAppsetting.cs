@@ -9,8 +9,7 @@ namespace LibraryAbstractDBProvider
     {
         public static string DatabaseDefault()
         {
-            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            var databaseDefault = config.GetSection("DatabaseDefault").Value;
+            var databaseDefault = ConnectString().GetSection("DatabaseDefault").Value;
             return databaseDefault;
         }
         public static IConfigurationRoot ConnectString()

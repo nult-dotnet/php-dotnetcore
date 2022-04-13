@@ -21,4 +21,8 @@ namespace BookStoreApi.DataAccess.AutoCreateDB
             }
         }
     }
+    public enum Database
+    {
+        MongoDB, SQLServer,PostgreSQL
+    }
 }

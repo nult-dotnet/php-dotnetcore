@@ -60,7 +60,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-if (!GetStringAppsetting.DatabaseDefault().Equals("MongoDB"))
+if (!GetStringAppsetting.DatabaseDefault().Equals(Convert.ToString(Database.MongoDB)))
 {
     var createDB = new AutoCreateDB();
     createDB.CreateDB(app);

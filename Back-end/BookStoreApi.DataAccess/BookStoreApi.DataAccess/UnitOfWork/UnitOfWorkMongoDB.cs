@@ -18,17 +18,10 @@ namespace BookStoreApi.RepositoryPattern
         {
             get { return _context; }
         }
-
-        public override void Commit() { }
-
-        public override void CreateTransaction() { }
-
         public void Dispose()
         {
             GC.SuppressFinalize(this);
         }
-
-        public override void Rollback(){ }
 
         public override void Save()
         {

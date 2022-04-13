@@ -11,11 +11,17 @@ namespace BookStoreApi.DataAccess.UnitOfWork
     {
         public abstract object Context { get; }
 
-        public abstract void Commit();
+        public virtual void Commit() {
+            Console.WriteLine("Commit");
+        }
 
-        public abstract void CreateTransaction();
+        public virtual void CreateTransaction() {
+            Console.WriteLine("Create Transaction");
+        }
 
-        public abstract void Rollback();
+        public virtual void Rollback() {
+            Console.WriteLine("Rollback");
+        }
 
         public abstract void Save();
     }
