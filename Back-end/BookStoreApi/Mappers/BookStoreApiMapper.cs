@@ -14,6 +14,7 @@ namespace BookStoreApi.Mappers
             CreateMap<User, CreateUser>().ReverseMap();
             CreateMap<Category,CategoryDTO>().ReverseMap();
             CreateMap<Book, BookInBill>().ForMember(dest => dest.Name,opt => opt.MapFrom(src=>src.BookName)).ReverseMap();
+            CreateMap<User,UserShow>().ReverseMap();
         }
     }
 }

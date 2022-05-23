@@ -51,9 +51,6 @@ namespace BookStoreApi.Services
                 {
                     return new ErrorResult<Book>(404, "Foreign key (CategoryId) does not exist");
                 }
-                //Upload image
-                //var formCollection = await Request?.ReadFormAsync();
-                //var image = formCollection.Files.FirstOrDefault();
                 var folderName = Path.Combine("wwwroot", "Images");
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
                 if (File.Length <= 0)
@@ -69,7 +66,6 @@ namespace BookStoreApi.Services
                 findCategory.Quantity += 1;
                 await this._categoryRepository.Update(findCategory);
                 CategoryShow category = this._mapper.Map<CategoryShow>(findCategory);
-                //newBook.Category = category;
                 newBook.ImagePath = fileName;
                 await this._bookRepository.Insert(newBook);
                 Memorycache.SetMemoryCacheAction(this._memoryCache);
@@ -84,7 +80,6 @@ namespace BookStoreApi.Services
                 throw new NotImplementedException();
             }
         }
-
         public async Task<ApiResult<Book>> Delete(string id)
         {
             try
@@ -121,7 +116,6 @@ namespace BookStoreApi.Services
                 throw new NotImplementedException();
             }
         }
-
         public async Task<IEnumerable<Book>> GetAllBook()
         {
             string cacheKey = "listBook";
@@ -135,7 +129,6 @@ namespace BookStoreApi.Services
             }
             return listBook;
         }
-
         public async Task<ApiResult<Book>> GetBookById(string id)
         {
             var book = await this._bookRepository.GetByID(id);
@@ -145,7 +138,6 @@ namespace BookStoreApi.Services
             }
             return new SuccessResult<Book>(200,"Get success",book);
         }
-
         public async Task<ApiResult<Book>> UpdateBook(string id, BookDTO updateBook,HttpRequest Request)
         {
             try
@@ -212,7 +204,6 @@ namespace BookStoreApi.Services
                 throw new NotImplementedException();
             }
         }
-
         public async Task<ApiResult<Book>> UpdateBookPath(string id, JsonPatchDocument<BookDTO> updateBook)
         {
             try
@@ -247,7 +238,6 @@ namespace BookStoreApi.Services
                     findCategory.Quantity += 1;
                     await this._categoryRepository.Update(findCategory);
                 }
-                //book.Category = category;
                 await this._bookRepository.Update(book);
                 Memorycache.SetMemoryCacheAction(this._memoryCache);
                 this._memoryCache.Remove("listCategory");

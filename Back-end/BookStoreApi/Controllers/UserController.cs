@@ -7,6 +7,9 @@ using BookStoreApi.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using BookStoreApi.MemoryCaches;
 using BookStoreApi.ApiActionResult;
+using Microsoft.AspNetCore.SignalR;
+using BookStoreApi.SignalR;
+using BookStoreApi.Authenticate;
 
 namespace BookStoreApi.Controllers
 {
@@ -15,39 +18,50 @@ namespace BookStoreApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private IHubContext<BroadcastHub, IHubClient> _hubContext;
+        public UserController(IUserService userService, IHubContext<BroadcastHub, IHubClient> hubContext)
         {
             _userService = userService;
-            
+            _hubContext= hubContext;
         }
         [HttpGet]
-        public async Task<IEnumerable<User>> GetUser() {
+        public async Task<IEnumerable<UserShow>> GetUser() {
             return await this._userService.GetAllUser();
         } 
         [HttpGet("{id}")]
-        public async Task<ApiResult<User>> GetUserById(string id){
+        public async Task<ApiResult<UserShow>> GetUserById(string id){
             return await this._userService.GetUserById(id);
         }
         [HttpPost]
         public async Task<ApiResult<User>> PostItemUser([FromBody] CreateUser createUser)
         {
-            return await this._userService.AddUser(createUser);
+            ApiResult<User> response = await this._userService.AddUser(createUser);
+            await _hubContext.Clients.All.BroadcastMessage();
+            return response;
         }
         [HttpDelete("{id}")]
         public async Task<ApiResult<User>> DeleteItemUser(string id)
         {
-            return await this._userService.Delete(id);
-
+            ApiResult<User> response = await this._userService.Delete(id);
+            await _hubContext.Clients.All.BroadcastMessage();
+            return response;
         }
         [HttpPut("{id}")]
         public async Task<ApiResult<User>> UpdateUserById(string id,[FromBody] UpdateUser updateUser)
         {
-            return await this._userService.UpdateUser(id, updateUser);
+            ApiResult<User> response = await this._userService.UpdateUser(id, updateUser);
+            await _hubContext.Clients.All.BroadcastMessage();
+            return response;
         }
         [HttpPatch("{id}")]
         public async Task<ApiResult<User>> UpdatePatch(string id,[FromBody] JsonPatchDocument<UpdateUser> updateUser)
         {
             return await this._userService.UpdateUserPath(id, updateUser);
+        }
+        [HttpPost("login")]
+        public async Task<ApiResult<string>> Login(AuthenticateRequest login)
+        {
+            return await this._userService.Authenticate(login);
         }
     }
 }

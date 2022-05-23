@@ -46,7 +46,6 @@ namespace BookStoreApi.Services
             unitOfWork.Save();
             return new SuccessResult<Role>(201, "Create success", newRole);
         }
-
         public async Task<ApiResult<Role>> Delete(string id)
         {
             try
@@ -78,7 +77,6 @@ namespace BookStoreApi.Services
                 throw new NotImplementedException();
             }
         }
-
         public async Task<IEnumerable<Role>> GetAllRole()
         {
             string cacheKeyListRole = "listRole";
@@ -92,7 +90,6 @@ namespace BookStoreApi.Services
             }
             return listRole;
         }
-
         public async Task<ApiResult<Role>> GetRoleById(string id)
         {
             var findRole = await this._roleRepository.GetByID(id);
@@ -125,7 +122,6 @@ namespace BookStoreApi.Services
                 {
                     foreach (User item in listUser)
                     {
-                        //item.Role = roleShow;
                         await this._userRepository.Update(item);
                     }
                 }

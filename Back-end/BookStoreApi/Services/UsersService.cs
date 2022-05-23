@@ -10,6 +10,13 @@ using BookStoreApi.DataAccess.GenericRepository;
 using BookStoreApi.DataAccess.UnitOfWork;
 using BookStoreApi.MemoryCaches;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.SignalR;
+using BookStoreApi.SignalR;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using BookStoreApi.Authenticate;
 
 namespace BookStoreApi.Services
 {
@@ -20,14 +27,16 @@ namespace BookStoreApi.Services
         private readonly IMapper _mapper;
         private readonly IMemoryCache _memoryCache;
         private IUnitOfWork unitOfWork = GetUnitOfWork.UnitOfWork();
-        public UsersService(IMapper mapper, IMemoryCache memoryCache)
+        private readonly AppSettings _appSettings;
+        public UsersService(IMapper mapper, IMemoryCache memoryCache,IOptions<AppSettings> appSettings)
         {
             _userRepository = GetRepository<User>.Repository(unitOfWork);
             _roleRepository = GetRepository<Role>.Repository(unitOfWork);
             _mapper = mapper;
             _memoryCache = memoryCache;
+            _appSettings = appSettings.Value;
         }
-        public  UsersService(IMapper mapper, IMemoryCache memory,IRepository<User> userRepository,IRepository<Role> roleRepository)
+        public UsersService(IMapper mapper, IMemoryCache memory,IRepository<User> userRepository,IRepository<Role> roleRepository)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
@@ -46,7 +55,7 @@ namespace BookStoreApi.Services
                 {
                     return new ErrorResult<User>(400, "Email is exist");
                 }
-                var validatePhone = await this._userRepository.Get(x => x.Id != newUser.Id && x.Email == newUser.Phone);
+                var validatePhone = await this._userRepository.Get(x => x.Id != newUser.Id && x.Phone == newUser.Phone);
                 if (validatePhone.Count() > 0)
                 {
                     return new ErrorResult<User>(400, "Phone is exist");
@@ -56,6 +65,7 @@ namespace BookStoreApi.Services
                 {
                     return new ErrorResult<User>(400, "Foreign key (RoleId) does not exist");
                 }
+                newUser.Password = BCrypt.Net.BCrypt.HashPassword(createUser.Password);
                 RoleShow roleShow = this._mapper.Map<RoleShow>(findRole);
                 //newUser.Role = roleShow;
                 findRole.Quantity += 1;
@@ -63,6 +73,7 @@ namespace BookStoreApi.Services
                 await this._userRepository.Insert(newUser);
                 Memorycache.SetMemoryCacheAction(this._memoryCache);
                 this._memoryCache.Remove("listRole");
+                
                 unitOfWork.Save();
                 unitOfWork.Commit();
                 return new SuccessResult<User>(201, "Create succecss", newUser);
@@ -104,7 +115,7 @@ namespace BookStoreApi.Services
             }
         }
 
-        public async Task<IEnumerable<User>> GetAllUser()
+        public async Task<IEnumerable<UserShow>> GetAllUser()
         {
             string cacheKey = "listUser";
             bool checkMemoryCacheAction = Memorycache.CheckMemoryCacheAction(this._memoryCache);
@@ -115,17 +126,18 @@ namespace BookStoreApi.Services
                 this._memoryCache.Set(cacheKey, listUser, Memorycache.SetMemoryCache());
                 Memorycache.RemoveMemoryCacheAction(this._memoryCache);
             }
-            return listUser;
+            IEnumerable<UserShow> listUserShow = this._mapper.Map<IEnumerable<User>,IEnumerable<UserShow>>(listUser);
+            return listUserShow;
         }
-
-        public async Task<ApiResult<User>> GetUserById(string id)
+        public async Task<ApiResult<UserShow>> GetUserById(string id)
         {
             var user = await this._userRepository.GetByID(id);
             if (user is null)
             {
-                return new ErrorResult<User>(404, "User not found");
+                return new ErrorResult<UserShow>(404, "User not found");
             }
-            return new SuccessResult<User>(200, "Get success", user);
+            var userShow = this._mapper.Map<User,UserShow>(user);
+            return new SuccessResult<UserShow>(200, "Get success", userShow);
         }
 
         public async Task<ApiResult<User>> UpdateUser(string id, UpdateUser updateUser)
@@ -226,6 +238,33 @@ namespace BookStoreApi.Services
                 unitOfWork.Rollback();
                 throw new NotImplementedException();
             }
+        }
+        private string GenerateJwtToken(User user)
+        {
+            // generate token that is valid for 7 days
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
+                Expires = DateTime.UtcNow.AddHours(2),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }   
+
+        public async Task<ApiResult<string>> Authenticate(AuthenticateRequest login)
+        {
+            var users = await this._userRepository.Get(x => x.Email == login.Email);
+            if (users.Count() == 0) 
+                return new ErrorResult<string>(400, "Login failed");
+            User user = users.First();
+            bool checkPass = BCrypt.Net.BCrypt.Verify(login.Password, user.Password);
+            if (!checkPass)
+                return new ErrorResult<string>(400, "Login failed");
+            var token = GenerateJwtToken(user);
+            return new SuccessResult<string>(200, "Login success", token);
         }
     }
 }

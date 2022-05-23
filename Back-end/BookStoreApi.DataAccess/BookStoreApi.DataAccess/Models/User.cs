@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace BookStoreApi.Models
 {
@@ -18,6 +17,8 @@ namespace BookStoreApi.Models
         public string Name { get; set; }
         [StringLength(255)]
         public string Email { get; set; }
+        [JsonIgnore]
+        public string Password { get; set; }    
         [StringLength(10)]
         public string Phone { get; set; }
         private DateTime timeCreate = DateTime.UtcNow;
@@ -52,11 +53,22 @@ namespace BookStoreApi.Models
         public string Name { get; set; }
         [EmailAddress]
         public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
         [Required,Phone,StringLength(10,ErrorMessage = "Invalid phone number")]
         public string Phone { get; set; }
         [Required]
         public string RoleId { get; set; }
         [Required]
         public string Address { get; set; }
+    }
+    public class UserShow
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string RoleId { get; set; }
     }
 }

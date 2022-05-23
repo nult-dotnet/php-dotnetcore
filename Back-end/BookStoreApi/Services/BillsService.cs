@@ -93,7 +93,6 @@ namespace BookStoreApi.Services
                 throw new NotImplementedException();
             }
         }
-
         public async Task<IEnumerable<Bill>> GetAllBill()
         {
             string cacheKey = "listBill";

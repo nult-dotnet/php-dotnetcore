@@ -14,6 +14,6 @@
             StatusCode = statuscode;
             Message = message;
             IsSuccess = true;
-        }
+        }   
     }
 }   

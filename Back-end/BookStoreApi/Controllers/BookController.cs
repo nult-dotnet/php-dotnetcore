@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using Microsoft.Extensions.Caching.Memory;
 using BookStoreApi.MemoryCaches;
 using BookStoreApi.ApiActionResult;
+using Microsoft.AspNetCore.Cors;
 
 namespace BookStoreApi.Controllers
 {

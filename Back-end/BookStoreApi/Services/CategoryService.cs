@@ -55,7 +55,6 @@ namespace BookStoreApi.Services
             unitOfWork.Save();
             return new SuccessResult<Category>(201, "Create success", newCategory);
         }
-
         public async Task<ApiResult<Category>> Delete(string id)
         {
             try
@@ -91,7 +90,6 @@ namespace BookStoreApi.Services
                 throw new NotImplementedException();
             }
         }
-
         public async Task<IEnumerable<Category>> GetAllCategory()
         {
             string cacheKey = "listCategory";
@@ -106,7 +104,6 @@ namespace BookStoreApi.Services
             }
             return listCategory;
         }
-
         public async Task<ApiResult<Category>> GetCategoryById(string id)
         {
             this._logger.LogInformation(MyLogEvents.GetItem, "{e} - Run api: https://localhost:44313/api/category/{id}", MyLogEventTitle.GetItem, id);
@@ -148,13 +145,11 @@ namespace BookStoreApi.Services
                 {
                     foreach (Book book in listBook)
                     {
-                        //book.Category = category;
                         await this._bookRepository.Update(book);
                     }
                 }
                 await this._categoryRepository.Update(findCategory);
                 this._logger.LogInformation(MyLogEvents.UpdateItem, "{e} - Output: {output}", MyLogEventTitle.UpdateItem, MyLogEvents.ShowObject(findCategory));
-                //Memory Cache
                 Memorycache.SetMemoryCacheAction(this._memoryCache);
 
                 unitOfWork.Save();
